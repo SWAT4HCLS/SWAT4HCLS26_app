@@ -96,6 +96,21 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
 .pt-social{background:#fce4ec;color:#880e4f}
 .pt-break,.pt-logistics{background:var(--sur2);color:var(--tx2)}
 
+/* ── Glance rows (home → programme deep link) ─────────────────── */
+.glance-row{
+  display:flex;align-items:center;gap:8px;width:100%;
+  background:none;border:none;padding:10px 2px;
+  cursor:pointer;text-align:left;
+  border-bottom:1px solid var(--brd);
+  -webkit-tap-highlight-color:transparent;transition:opacity .15s}
+.glance-row:last-child{border-bottom:none}
+.glance-row:active{opacity:.5}
+.glance-day{font-size:12px;font-weight:700;color:var(--dc,#005a9c);width:44px;flex-shrink:0}
+.glance-theme{font-size:12px;color:var(--tx2);flex-shrink:0;max-width:70px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.glance-pills{flex:1;display:flex;flex-wrap:wrap;gap:4px}
+.glance-chev{font-size:20px;color:var(--tx2);font-weight:300;flex-shrink:0;line-height:1}
+
 /* ── HOME ───────────────────────────────────────────────────────── */
 .hero{
   background-color:var(--pd);
@@ -387,24 +402,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
 
       <div class="card" style="margin-top:10px">
         <div class="lbl">Programme at a glance</div>
-        <div style="display:flex;flex-direction:column;gap:8px">
-          <div style="display:flex;gap:10px;align-items:center">
-            <div style="width:40px;font-size:11px;font-weight:700;color:var(--g)">Mon 23</div>
-            <div style="flex:1;font-size:13px"><span class="pill pt-tutorial">Tutorials</span> — 6 parallel tracks</div>
-          </div>
-          <div style="display:flex;gap:10px;align-items:center">
-            <div style="width:40px;font-size:11px;font-weight:700;color:var(--p)">Tue 24</div>
-            <div style="flex:1;font-size:13px"><span class="pill pt-keynote">Keynotes</span> + Papers + Posters/Demos + Dinner</div>
-          </div>
-          <div style="display:flex;gap:10px;align-items:center">
-            <div style="width:40px;font-size:11px;font-weight:700;color:var(--p)">Wed 25</div>
-            <div style="flex:1;font-size:13px"><span class="pill pt-keynote">Keynotes</span> + Papers + Posters/Demos + Closing</div>
-          </div>
-          <div style="display:flex;gap:10px;align-items:center">
-            <div style="width:40px;font-size:11px;font-weight:700;color:#6a1b9a">Thu 26</div>
-            <div style="flex:1;font-size:13px"><span class="pill pt-hackathon">BioHackathon</span></div>
-          </div>
-        </div>
+        <div id="prog-glance"></div>
       </div>
 
       <div class="card" style="margin-top:10px">
@@ -701,7 +699,28 @@ const App = (() => {
   }
 
   /* ── HOME ─────────────────────────────────────────────────── */
+  function glancePills(sessions) {
+    const order = ['keynote','tutorial','hackathon','papers','demo','social','plenary'];
+    const label = {
+      keynote:'Keynotes', tutorial:'Tutorials', hackathon:'BioHackathon',
+      papers:'Papers', demo:'Demos', social:'Social', plenary:'Plenary'
+    };
+    return order
+      .filter(t => sessions.some(s => s.type === t))
+      .map(t => `<span class="pill pt-${t}">${label[t]}</span>`)
+      .join('');
+  }
   function renderHome() {
+    // Programme at a glance — dynamic, each row links to that day
+    const glance = $('#prog-glance');
+    if(glance && D.days) {
+      glance.innerHTML = D.days.map((d, i) => `
+        <button class="glance-row" style="--dc:${d.color}" onclick="App.goDay(${i})">
+          <span class="glance-day">${esc(d.label)}</span>
+          <span class="glance-pills">${glancePills(d.sessions)}</span>
+          <span class="glance-chev">›</span>
+        </button>`).join('');
+    }
     // Hosted by
     const hb = $('#hosted-by');
     if(hb && D.hosted_by) {
@@ -796,6 +815,9 @@ const App = (() => {
   }
   function day(i) {
     curDay=i; renderDays(); renderSessions(); $('#scroll').scrollTo(0,0);
+  }
+  function goDay(i) {
+    day(i); go('prog');
   }
   function toggleBK(sid) {
     if(BK[sid]) delete BK[sid]; else BK[sid]=true;
@@ -1182,7 +1204,7 @@ const App = (() => {
   }
 
   return {
-    init, go, day, toggle, toggleBK, toggleTalkBK, filter,
+    init, go, day, goDay, toggle, toggleBK, toggleTalkBK, filter,
     saveProfile, editProfile, copyLink, shareCard,
     rmContact, saveContact, note, exportNotes, exportBookmarks
   };
