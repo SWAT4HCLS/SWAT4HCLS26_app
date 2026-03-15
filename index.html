@@ -428,6 +428,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
         <div id="hosted-by" style="display:flex;flex-direction:column;gap:8px"></div>
       </div>
 
+      <div id="home-indoor-nav"></div>
+
       <div class="card" style="margin-top:10px">
         <div class="lbl">Sponsors</div>
         <div class="sp-row" id="sp-row"></div>
@@ -798,6 +800,39 @@ const App = (() => {
     sp.innerHTML = D.sponsors.map(s =>
       `<a href="${esc(s.url)}" target="_blank" class="sp-chip sp-${s.tier.toLowerCase()}">${esc(s.name)} <small style="opacity:.6">${esc(s.tier)}</small></a>`
     ).join('');
+
+    // Indoor navigation on Home
+    const navHome = $('#home-indoor-nav');
+    if(navHome && D.indoor_nav) {
+      const nav = D.indoor_nav;
+      const sections = (nav.nav_sections||[]).map(sec => `
+<div style="margin-top:10px;padding:12px 14px;background:var(--sur2);border-radius:var(--rs)">
+  <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;
+              color:var(--p);margin-bottom:8px">${esc(sec.icon||'')} ${esc(sec.title)}</div>
+  <ol style="padding-left:18px;display:flex;flex-direction:column;gap:7px;margin:0">
+    ${sec.steps.map(s=>`<li style="font-size:13px;color:var(--tx);line-height:1.55">${esc(s)}</li>`).join('')}
+  </ol>
+</div>`).join('');
+      const reg = nav.registration;
+      const regBox = reg ? `
+<div style="margin-top:10px;padding:12px 14px;background:linear-gradient(135deg,#e8f5e9,#f1f8e9);
+            border:1px solid #a5d6a7;border-radius:var(--rs)">
+  <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;
+              color:#2e7d32;margin-bottom:4px">📋 Registration desk</div>
+  <div style="font-size:13px;font-weight:600;color:var(--tx);margin-bottom:3px">${esc(reg.location)}</div>
+  <div style="font-size:12px;color:var(--tx2);line-height:1.5">${esc(reg.note)}</div>
+</div>` : '';
+      navHome.innerHTML = `
+<div class="card" style="margin-top:10px">
+  <div class="lbl">🏥 Getting around inside AMC</div>
+  ${regBox}
+  ${sections}
+  <div class="link-row" style="margin-top:12px">
+    <a class="lnk" href="https://www.amsterdamumc.nl/nl/locatie-amc/in-het-ziekenhuis" target="_blank" rel="noopener">🏥 AMC wayfinding</a>
+    <a class="lnk" onclick="App.go('venue');App.vtab('inside')" style="cursor:pointer">📍 Full details →</a>
+  </div>
+</div>`;
+    }
   }
 
   /* ── PEOPLE ───────────────────────────────────────────────── */
@@ -1320,7 +1355,7 @@ ${navSections || `
   return {
     init, go, day, goDay, toggle, toggleBK, toggleTalkBK, filter,
     saveProfile, editProfile, copyLink, shareCard,
-    rmContact, saveContact, note, exportNotes, exportBookmarks
+    rmContact, saveContact, note, exportNotes, exportBookmarks, vtab
   };
 })();
 
