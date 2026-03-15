@@ -58,7 +58,7 @@
           "type": "tutorial",
           "title": "Clinical Data Modeling with SULO",
           "track": "Track A",
-          "room": "Collegezaal 4 (Lecture room 4) · building G",
+          "room": "Foyer · Collegezaal 4 (Lecture room 4), building G",
           "speaker": "Remzi Celebi, Catalina Martinez-Costa, Michel Dumontier",
           "affil": "Maastricht University; University of Murcia",
           "slack": "#swat4hcls2026_t1",
@@ -75,7 +75,7 @@
           "type": "tutorial",
           "title": "Making GraphRAG work for Healthcare and Life Sciences: Ensuring Knowledge Graph Quality for Grounded LLMs",
           "track": "Track B",
-          "room": "Collegezaal 3 (Lecture room 3) · building J",
+          "room": "Foyer · Collegezaal 4 (Lecture room 4), building G",
           "speaker": "Panos Alexopoulos",
           "affil": "Triply BV",
           "slack": "#swat4hcls2026_t2",
@@ -92,7 +92,7 @@
           "type": "tutorial",
           "title": "Building Virtual Knowledge Graphs for Life Sciences with Ontop-VKG",
           "track": "Track C",
-          "room": "Collegezaal 2 (Lecture room 2) · building J",
+          "room": "Foyer · Collegezaal 4 (Lecture room 4), building G",
           "speaker": "Carsten Fortmann-Grote, Damien Goutte-Gattat, Rowdy de Groot, Tiago Lubiana, Joshua Moore, Daniel Olvera Cabrera, Andra Waagmeester",
           "affil": "Max Planck Institute for Evolutionary Biology; German BioImaging / Konstanz University; Micelio / AmsterdamUMC",
           "slack": "#swat4hcls2026_t3",
@@ -123,7 +123,7 @@
           "type": "tutorial",
           "title": "Harmonising Provenance Information for Biomedical Data: the MIRAPIE Approach Applied to Health Research Data in EHDS Context",
           "track": "Track A",
-          "room": "Collegezaal 4 (Lecture room 4) · building G",
+          "room": "Foyer · Collegezaal 4 (Lecture room 4), building G",
           "speaker": "Kerstin Gierend, Alexander J Kellmann, Matthias Lobe, Vasundra Touré, Sabine Österle, Judith AH Wodke",
           "affil": "Heidelberg University Mannheim; University Medicine Greifswald; Universität Leipzig; SIB Swiss Institute of Bioinformatics",
           "slack": "#swat4hcls2026_t4",
@@ -140,7 +140,7 @@
           "type": "tutorial",
           "title": "Declarative Data Standardization to OMOP-CDM using LinkML",
           "track": "Track B",
-          "room": "Collegezaal 3 (Lecture room 3) · building J",
+          "room": "Foyer · Collegezaal 4 (Lecture room 4), building G",
           "speaker": "Alberto Labarga",
           "affil": "Barcelona Supercomputing Center",
           "slack": "#swat4hcls2026_t5",
@@ -157,7 +157,7 @@
           "type": "tutorial",
           "title": "Learning SPARQL By Example",
           "track": "Track C",
-          "room": "Collegezaal 2 (Lecture room 2) · building J",
+          "room": "Foyer · Collegezaal 4 (Lecture room 4), building G",
           "speaker": "Vincent Emonet, Pauline Lubet, Tarcisio Mendes, Ana-Claudia Sima, Jerven Bolleman, Andra Waagmeester",
           "affil": "SIB Swiss Institute of Bioinformatics; Micelio",
           "slack": "#swat4hcls2026_t6",
@@ -675,7 +675,7 @@
     "title": "Inside AmsterdamUMC, location AMC",
     "address_full": "AmsterdamUMC, location AMC\nMeibergdreef 9\n1105 AZ Amsterdam-Zuidoost\nNetherlands",
     "phone": "+31 20 566 9111",
-    "conference_rooms": "Main conference & tutorials (Track A): Collegezaal 4 / Lecture room 4 — building G, ground floor. Tutorials Track B: Collegezaal 3 / Lecture room 3 — building J, near Studieplein. Tutorials Track C: Collegezaal 2 / Lecture room 2 — building J, adjacent to Collegezaal 3. Biohackathon: Collegezaal 3 / Lecture room 3 — building J.",
+    "conference_rooms": "All sessions take place in or around Collegezaal 4 (Lecture room 4), building G — accessible from Annaplein. The foyer of Collegezaal 4 hosts registration, coffee breaks, and poster sessions. Biohackathon: Collegezaal 3 (Lecture room 3), building J.",
     "rooms": [
       {
         "id": "cz4",
@@ -713,14 +713,36 @@
       { "id": 2, "name": "Ingang Oost (faculteit)", "name_en": "East entrance", "location": "West side of campus (confusingly labelled Oost on maps) — nearest to P4 parking and building J" },
       { "id": 3, "name": "Ingang West (P2)", "name_en": "West entrance", "location": "East side, P2 parking — leads toward buildings H and M" }
     ],
+    "nav_sections": [
+      {
+        "title": "Arriving at AmsterdamUMC, location AMC",
+        "icon": "🏥",
+        "steps": [
+          "The easiest access is via the Hoofdingang (Main Entrance, P1) of AmsterdamUMC, location AMC.",
+          "Public transport users arrive via Station Amsterdam Holendrecht — exit the station and walk across the bridge; the main entrance is directly ahead (~5 min walk).",
+          "By car: enter via P1 (visitor parking, 34 spaces) or P2 (paid parking). P1 is right next to the Hoofdingang."
+        ]
+      },
+      {
+        "title": "From the main entrance to the Foyer of Collegezaal 4",
+        "icon": "🎓",
+        "steps": [
+          "Enter through the Hoofdingang / Main entrance (entrance ①).",
+          "After entering the hospital, follow the internal corridor toward Annaplein — the central square inside the building.",
+          "From Annaplein, continue toward building G, which leads to the main conference area.",
+          "The Foyer of Collegezaal 4 (Lecture room 4) is directly accessible from Annaplein in building G. Look for SWAT4HCLS signage."
+        ]
+      }
+    ],
+    "registration": {
+      "location": "Foyer of Collegezaal 4 (Lecture room 4) — building G, near Annaplein",
+      "note": "The foyer directly outside the lecture hall hosts the registration desk, coffee breaks, and poster sessions throughout the conference."
+    },
     "steps_from_entrance": [
       "Enter via the Hoofdingang / Main entrance (entrance ①, south side — straight ahead from Holendrecht bridge).",
-      "Walk through the main lobby past the hospital information desk (staff speak English — ask if unsure).",
-      "Follow the internal street toward the Poliplein — the central square in the A wing.",
-      "From Poliplein continue north along the main corridor toward the Annaplein (between buildings B, C and G).",
-      "Collegezaal 4 (Lecture room 4) is in building G, directly on the Annaplein — follow SWAT4HCLS signs. This is the main conference room and Tutorial Track A.",
-      "For Collegezaals 2 & 3 (Tutorial Tracks B & C / Biohackathon): continue past Annaplein through the J wing toward the Studieplein. Collegezaals 2 and 3 are on the ground floor of building J, adjacent to each other.",
-      "💡 Shortcut for Collegezaals 2 & 3: use Ingang Oost / entrance ② (near P4 parking) — enter and walk directly to the Studieplein in building J."
+      "Follow the internal corridor toward Annaplein — the central square inside the building.",
+      "From Annaplein, continue toward building G.",
+      "The Foyer of Collegezaal 4 (Lecture room 4) is in building G, directly on Annaplein — follow SWAT4HCLS signs."
     ],
     "tips": [
       "The AMC is a large teaching hospital — allow 5–10 extra minutes to find your room on Day 1.",
