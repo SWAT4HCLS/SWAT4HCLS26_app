@@ -2,6 +2,10 @@
   "conference": "SWAT4HCLS 2026",
   "edition": "17th International Conference",
   "subtitle": "Semantic Web Applications and Tools for Health Care and Life Sciences",
+  "hosted_by": [
+    "Department of Medical Informatics, Amsterdam UMC",
+    "Advanced Compute & Data Core (ACDC), Amsterdam UMC"
+  ],
   "hashtag": "#SWAT4HCLS",
   "slack": "https://swat4hcls.slack.com",
   "mastodon": "https://mas.to/tags/SWAT4HCLS",
