@@ -58,7 +58,7 @@
           "type": "tutorial",
           "title": "Clinical Data Modeling with SULO",
           "track": "Track A",
-          "room": "Room A",
+          "room": "Collegezaal 4 (Lecture room 4) · building G",
           "speaker": "Remzi Celebi, Catalina Martinez-Costa, Michel Dumontier",
           "affil": "Maastricht University; University of Murcia",
           "slack": "#swat4hcls2026_t1",
@@ -75,7 +75,7 @@
           "type": "tutorial",
           "title": "Making GraphRAG work for Healthcare and Life Sciences: Ensuring Knowledge Graph Quality for Grounded LLMs",
           "track": "Track B",
-          "room": "Room B",
+          "room": "Collegezaal 3 (Lecture room 3) · building J",
           "speaker": "Panos Alexopoulos",
           "affil": "Triply BV",
           "slack": "#swat4hcls2026_t2",
@@ -92,7 +92,7 @@
           "type": "tutorial",
           "title": "Building Virtual Knowledge Graphs for Life Sciences with Ontop-VKG",
           "track": "Track C",
-          "room": "Room C",
+          "room": "Collegezaal 2 (Lecture room 2) · building J",
           "speaker": "Carsten Fortmann-Grote, Damien Goutte-Gattat, Rowdy de Groot, Tiago Lubiana, Joshua Moore, Daniel Olvera Cabrera, Andra Waagmeester",
           "affil": "Max Planck Institute for Evolutionary Biology; German BioImaging / Konstanz University; Micelio / AmsterdamUMC",
           "slack": "#swat4hcls2026_t3",
@@ -108,7 +108,7 @@
           "time": "10:30", "end": "11:00",
           "type": "break",
           "title": "Coffee Break",
-          "room": "Foyer"
+          "room": "Foyer · Collegezaal 4, building G"
         },
         {
           "id": "d1_lunch",
@@ -123,7 +123,7 @@
           "type": "tutorial",
           "title": "Harmonising Provenance Information for Biomedical Data: the MIRAPIE Approach Applied to Health Research Data in EHDS Context",
           "track": "Track A",
-          "room": "Room A",
+          "room": "Collegezaal 4 (Lecture room 4) · building G",
           "speaker": "Kerstin Gierend, Alexander J Kellmann, Matthias Lobe, Vasundra Touré, Sabine Österle, Judith AH Wodke",
           "affil": "Heidelberg University Mannheim; University Medicine Greifswald; Universität Leipzig; SIB Swiss Institute of Bioinformatics",
           "slack": "#swat4hcls2026_t4",
@@ -140,7 +140,7 @@
           "type": "tutorial",
           "title": "Declarative Data Standardization to OMOP-CDM using LinkML",
           "track": "Track B",
-          "room": "Room B",
+          "room": "Collegezaal 3 (Lecture room 3) · building J",
           "speaker": "Alberto Labarga",
           "affil": "Barcelona Supercomputing Center",
           "slack": "#swat4hcls2026_t5",
@@ -157,7 +157,7 @@
           "type": "tutorial",
           "title": "Learning SPARQL By Example",
           "track": "Track C",
-          "room": "Room C",
+          "room": "Collegezaal 2 (Lecture room 2) · building J",
           "speaker": "Vincent Emonet, Pauline Lubet, Tarcisio Mendes, Ana-Claudia Sima, Jerven Bolleman, Andra Waagmeester",
           "affil": "SIB Swiss Institute of Bioinformatics; Micelio",
           "slack": "#swat4hcls2026_t6",
@@ -173,7 +173,7 @@
           "time": "15:30", "end": "16:00",
           "type": "break",
           "title": "Coffee Break",
-          "room": "Foyer"
+          "room": "Foyer · Collegezaal 4, building G"
         }
       ]
     },
@@ -190,7 +190,7 @@
           "type": "plenary",
           "title": "Opening \u2014 Welcome to SWAT4HCLS 2026",
           "speaker": "Organising Committee",
-          "room": "Auditorium"
+          "room": "Collegezaal 4 (Lecture room 4) · building G"
         },
         {
           "id": "d2_k1",
@@ -199,7 +199,7 @@
           "title": "Looking in and through the looking-glass",
           "speaker": "Prof. Ronald Cornet",
           "affil": "Amsterdam UMC & University of Amsterdam",
-          "room": "Auditorium",
+          "room": "Collegezaal 4 (Lecture room 4) · building G",
           "abstract": "Reflects on 25 years researching semantics and ontologies for healthcare data representation, addressing technical, social, and governance aspects while examining progress, pitfalls, and future directions in semantic interoperability for reusable health data.",
           "bio": "Full Professor of Medical Informatics at Amsterdam UMC. His work focuses on semantic interoperability and information modeling, with consistent emphasis on making clinical and biomedical data more FAIR.",
           "tags": ["semantics", "ontology", "healthcare", "retrospective"],
@@ -212,14 +212,14 @@
           "time": "10:30", "end": "11:00",
           "type": "break",
           "title": "Coffee Break & Poster/Demo preview",
-          "room": "Foyer"
+          "room": "Foyer · Collegezaal 4, building G"
         },
         {
           "id": "d2_papers1",
           "time": "11:00", "end": "12:30",
           "type": "papers",
           "title": "Paper Session 1",
-          "room": "Auditorium",
+          "room": "Collegezaal 4 (Lecture room 4) · building G",
           "chair": "TBA",
           "tags": []
         },
@@ -237,7 +237,7 @@
           "title": "Scaling up data driven research can leverage the EHDS but needs better quality and more semantically interoperable data",
           "speaker": "Prof. Dipak Kalra",
           "affil": "European Institute for Innovation through Health Data (i~HD)",
-          "room": "Auditorium",
+          "room": "Collegezaal 4 (Lecture room 4) · building G",
           "abstract": "Examines how the European Health Data Space accelerates real-world data availability while highlighting critical success factors including data provenance, quality, standards, and public trust.",
           "bio": "President of i~HD. Champions approaches combining technical interoperability with ethical, legal, and organisational trust to support responsible data sharing across healthcare and research.",
           "tags": ["EHDS", "data-quality", "provenance", "RWD"],
@@ -250,7 +250,7 @@
           "time": "14:30", "end": "16:00",
           "type": "papers",
           "title": "Paper Session 2",
-          "room": "Auditorium",
+          "room": "Collegezaal 4 (Lecture room 4) · building G",
           "chair": "TBA",
           "tags": []
         },
@@ -259,7 +259,7 @@
           "time": "16:00", "end": "17:30",
           "type": "demo",
           "title": "Poster & Demo Session",
-          "room": "Foyer",
+          "room": "Foyer · Collegezaal 4, building G",
           "abstract": "Presentations of all accepted posters and demonstrations. Coffee served.",
           "tags": ["poster", "demo", "networking"]
         },
@@ -291,7 +291,7 @@
           "title": "Knowledge alignment for LLMs: A strategy for reproducibility?",
           "speaker": "Prof. Janna Hastings",
           "affil": "Idiap Research Institute, Martigny, Switzerland",
-          "room": "Auditorium",
+          "room": "Collegezaal 4 (Lecture room 4) · building G",
           "abstract": "Discusses combining large language models with formal ontologies and logical constraints to improve reliability and ensure reproducibility, with examples from chemistry and behavioural science.",
           "bio": "Previously at EBI and University of Cambridge. From January 2026, leads the Human-Centred Health AI group at Idiap, focusing on improving AI approaches for evidence and decision-making.",
           "tags": ["LLM", "ontology", "reproducibility", "AI"],
@@ -304,7 +304,7 @@
           "time": "10:00", "end": "10:30",
           "type": "break",
           "title": "Coffee Break",
-          "room": "Foyer"
+          "room": "Foyer · Collegezaal 4, building G"
         },
         {
           "id": "d3_k4",
@@ -313,7 +313,7 @@
           "title": "Keynote — Prof. Hannah Bast",
           "speaker": "Prof. Hannah Bast",
           "affil": "University of Freiburg, Germany",
-          "room": "Auditorium",
+          "room": "Collegezaal 4 (Lecture room 4) · building G",
           "abstract": "Talk title to be announced. Prof. Bast specialises in algorithms, information retrieval, and high-performance systems for knowledge graph search, bridging rigorous computer science with real-world applications.",
           "bio": "Professor at University of Freiburg specialising in algorithms, information retrieval, and high-performance systems for RDF and SPARQL use cases.",
           "tags": ["knowledge-graph", "information-retrieval", "algorithms"],
@@ -326,7 +326,7 @@
           "time": "11:30", "end": "13:00",
           "type": "papers",
           "title": "Paper Session 3",
-          "room": "Auditorium",
+          "room": "Collegezaal 4 (Lecture room 4) · building G",
           "chair": "TBA",
           "tags": []
         },
@@ -342,7 +342,7 @@
           "time": "14:00", "end": "15:30",
           "type": "papers",
           "title": "Paper Session 4",
-          "room": "Auditorium",
+          "room": "Collegezaal 4 (Lecture room 4) · building G",
           "chair": "TBA",
           "tags": []
         },
@@ -351,7 +351,7 @@
           "time": "15:30", "end": "16:30",
           "type": "demo",
           "title": "Poster & Demo Session",
-          "room": "Foyer",
+          "room": "Foyer · Collegezaal 4, building G",
           "abstract": "Second poster and demo session. Coffee served.",
           "tags": ["poster", "demo"]
         },
@@ -361,7 +361,7 @@
           "type": "plenary",
           "title": "Awards & Closing Remarks",
           "speaker": "Organising & Scientific Committee",
-          "room": "Auditorium",
+          "room": "Collegezaal 4 (Lecture room 4) · building G",
           "tags": ["awards", "closing", "biohackathon-preview"]
         }
       ]
@@ -378,14 +378,14 @@
           "time": "09:00", "end": "10:00",
           "type": "logistics",
           "title": "Walk-in & Setup",
-          "room": "Hackathon Room"
+          "room": "Collegezaal 3 (Lecture room 3) · building J"
         },
         {
           "id": "d4_pitches",
           "time": "10:00", "end": "11:00",
           "type": "plenary",
           "title": "Project Pitches & Team Formation",
-          "room": "Hackathon Room",
+          "room": "Collegezaal 3 (Lecture room 3) · building J",
           "abstract": "Each project lead presents their pitch (5 min). After all pitches, teams self-organise and hacking begins.",
           "tags": ["biohackathon", "pitches"]
         },
@@ -394,7 +394,7 @@
           "time": "11:00", "end": "12:30",
           "type": "hackathon",
           "title": "Hacking Session I",
-          "room": "Hackathon Room",
+          "room": "Collegezaal 3 (Lecture room 3) · building J",
           "tags": ["biohackathon"]
         },
         {
@@ -409,7 +409,7 @@
           "time": "13:30", "end": "15:00",
           "type": "hackathon",
           "title": "Hacking Session II",
-          "room": "Hackathon Room",
+          "room": "Collegezaal 3 (Lecture room 3) · building J",
           "tags": ["biohackathon"]
         },
         {
@@ -417,7 +417,7 @@
           "time": "15:00", "end": "16:00",
           "type": "plenary",
           "title": "Results Presentations & Wrap-up",
-          "room": "Hackathon Room",
+          "room": "Collegezaal 3 (Lecture room 3) · building J",
           "abstract": "Each team presents their hackathon outcomes, code, and next steps.",
           "tags": ["biohackathon", "results"]
         }
@@ -675,18 +675,61 @@
     "title": "Inside AmsterdamUMC, location AMC",
     "address_full": "AmsterdamUMC, location AMC\nMeibergdreef 9\n1105 AZ Amsterdam-Zuidoost\nNetherlands",
     "phone": "+31 20 566 9111",
-    "conference_rooms": "TBA — room assignments will be posted here and on the interactive programme",
+    "conference_rooms": "Main conference & tutorials (Track A): Collegezaal 4 / Lecture room 4 — building G, ground floor. Tutorials Track B: Collegezaal 3 / Lecture room 3 — building J, near Studieplein. Tutorials Track C: Collegezaal 2 / Lecture room 2 — building J, adjacent to Collegezaal 3. Biohackathon: Collegezaal 3 / Lecture room 3 — building J.",
+    "rooms": [
+      {
+        "id": "cz4",
+        "name": "Collegezaal 4",
+        "name_en": "Lecture room 4",
+        "building": "G",
+        "floor": "Ground floor",
+        "area": "Annaplein",
+        "use": "Main conference, tutorials Track A",
+        "note": "Central building, directly on Annaplein. Follow signs to building G from the Poliplein."
+      },
+      {
+        "id": "cz3",
+        "name": "Collegezaal 3",
+        "name_en": "Lecture room 3",
+        "building": "J",
+        "floor": "Ground floor",
+        "area": "Studieplein",
+        "use": "Tutorials Track B, Biohackathon",
+        "note": "Upper part of building J, next to Collegezaal 2. Use entrance 2 (Ingang Oost / P4) to reach it more directly."
+      },
+      {
+        "id": "cz2",
+        "name": "Collegezaal 2",
+        "name_en": "Lecture room 2",
+        "building": "J",
+        "floor": "Ground floor",
+        "area": "Studieplein",
+        "use": "Tutorials Track C",
+        "note": "Adjacent to Collegezaal 3 in building J. Use entrance 2 (Ingang Oost / P4) for the shortest route."
+      }
+    ],
+    "entrances": [
+      { "id": 1, "name": "Hoofdingang AMC", "name_en": "Main entrance", "location": "South side, Meibergdreef 9 — directly opposite the bridge from Holendrecht station (P1 parking)" },
+      { "id": 2, "name": "Ingang Oost (faculteit)", "name_en": "East entrance", "location": "West side of campus (confusingly labelled Oost on maps) — nearest to P4 parking and building J" },
+      { "id": 3, "name": "Ingang West (P2)", "name_en": "West entrance", "location": "East side, P2 parking — leads toward buildings H and M" }
+    ],
     "steps_from_entrance": [
-      "Enter via the Main Entrance at Meibergdreef 9 (directly opposite the bridge from Holendrecht station).",
-      "Follow SWAT4HCLS signage inside the building.",
-      "Registration desk: TBA (will be updated before the conference).",
-      "Conference auditorium / lecture halls: TBA.",
-      "Ask at the hospital information desk if in doubt — staff speak English."
+      "Enter via the Hoofdingang / Main entrance (entrance ①, south side — straight ahead from Holendrecht bridge).",
+      "Walk through the main lobby past the hospital information desk (staff speak English — ask if unsure).",
+      "Follow the internal street toward the Poliplein — the central square in the A wing.",
+      "From Poliplein continue north along the main corridor toward the Annaplein (between buildings B, C and G).",
+      "Collegezaal 4 (Lecture room 4) is in building G, directly on the Annaplein — follow SWAT4HCLS signs. This is the main conference room and Tutorial Track A.",
+      "For Collegezaals 2 & 3 (Tutorial Tracks B & C / Biohackathon): continue past Annaplein through the J wing toward the Studieplein. Collegezaals 2 and 3 are on the ground floor of building J, adjacent to each other.",
+      "💡 Shortcut for Collegezaals 2 & 3: use Ingang Oost / entrance ② (near P4 parking) — enter and walk directly to the Studieplein in building J."
     ],
     "tips": [
-      "The AMC is a large hospital campus — allow 5 extra minutes to find your room on Day 1.",
-      "Toilets and a canteen are available throughout the building.",
-      "Accessibility: the building is fully wheelchair accessible. Contact swat4hcls@gmail.com for specific needs."
+      "The AMC is a large teaching hospital — allow 5–10 extra minutes to find your room on Day 1.",
+      "All three conference rooms (Collegezalen 2, 3 and 4) are connected via the internal hospital street — you can walk between them without going outside.",
+      "The foyer of Collegezaal 4 (building G, Annaplein) is used for registration, coffee breaks, and posters during the main conference days.",
+      "Toilets and the hospital canteen are available throughout the building, including near Annaplein and Poliplein.",
+      "The 'Route in Amsterdam UMC' app uses augmented reality to guide you to any room — download it before arriving.",
+      "Accessibility: the building is fully wheelchair accessible. Shuttle service operates 09:00–17:00 from the main entrance (call 06-20360622).",
+      "A hospital-wide shuttle runs 09:00–17:00 between Hoofdingang, Poliplein (A0), and H0 reception — helpful if walking is difficult."
     ]
   },
 
