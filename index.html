@@ -111,6 +111,24 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
 .glance-pills{flex:1;display:flex;flex-wrap:wrap;gap:4px}
 .glance-chev{font-size:20px;color:var(--tx2);font-weight:300;flex-shrink:0;line-height:1}
 
+/* ── Committee / Who is Who ─────────────────────────────────────── */
+.person-row{display:flex;align-items:center;gap:12px;padding:9px 0;
+  border-bottom:1px solid var(--brd)}
+.person-row:last-child{border-bottom:none}
+.person-av{width:36px;height:36px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:700;color:#fff}
+.person-info{flex:1;min-width:0}
+.person-name{font-size:14px;font-weight:600;color:var(--tx);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.person-role{font-size:12px;color:var(--tx2);margin-top:1px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.person-li{width:30px;height:30px;border-radius:6px;background:#0077b5;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  text-decoration:none;color:#fff;font-size:11px;font-weight:800;
+  letter-spacing:-.5px;-webkit-tap-highlight-color:transparent}
+.person-li:active{opacity:.7}
+
 /* ── HOME ───────────────────────────────────────────────────────── */
 .hero{
   background-color:var(--pd);
@@ -408,6 +426,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
       <div class="card" style="margin-top:10px">
         <div class="lbl">Hosted by</div>
         <div id="hosted-by" style="display:flex;flex-direction:column;gap:8px"></div>
+      </div>
+
+      <div class="card" style="margin-top:10px">
+        <div class="lbl">Organising Committee</div>
+        <div id="committee-list"></div>
       </div>
 
       <div class="card" style="margin-top:10px">
@@ -736,6 +759,27 @@ const App = (() => {
           <div style="width:6px;height:6px;border-radius:50%;background:var(--p);flex-shrink:0"></div>
           <span style="font-size:13px;font-weight:500;color:var(--tx)">${esc(dept)}</span>
         </div>`).join('');
+    }
+    // Organising Committee
+    const cmList = document.getElementById('committee-list');
+    if(cmList && D.committee) {
+      const avCol = r => r.startsWith('LOC') ? 'var(--p)'
+        : r.includes('Chair') ? 'var(--g)'
+        : r.includes('OC Member') ? '#00695c' : '#5a6980';
+      cmList.innerHTML = D.committee.map(p => {
+        const initials = p.name.split(' ').map(w=>w[0]).slice(0,2).join('').toUpperCase();
+        const li = p.linkedin
+          ? `<a href="${esc(p.linkedin)}" target="_blank" rel="noopener" class="person-li"
+               title="LinkedIn: ${esc(p.name)}" aria-label="LinkedIn profile of ${esc(p.name)}">in</a>` : '';
+        return `<div class="person-row">
+          <div class="person-av" style="background:${avCol(p.role)}">${initials}</div>
+          <div class="person-info">
+            <div class="person-name">${esc(p.name)}</div>
+            <div class="person-role">${esc(p.role)} · ${esc(p.affil)}</div>
+          </div>
+          ${li}
+        </div>`;
+      }).join('');
     }
     // Sponsors
     const sp = $('#sp-row');

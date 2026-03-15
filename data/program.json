@@ -25,14 +25,16 @@
   "address": "Meibergdreef 9, 1105 AZ Amsterdam, Netherlands",
 
   "committee": [
-    { "role": "LOC Chair & Hackathon Chair", "name": "Andra Waagmeester", "affil": "Amsterdam UMC" },
-    { "role": "LOC Member", "name": "Katy Wolstencroft", "affil": "Amsterdam UMC" },
-    { "role": "Administration", "name": "Dana Cernoskova", "affil": "Scientifika" },
-    { "role": "Scientific Chair", "name": "Sabine \u00d6sterle", "affil": "Swiss Institute of Bioinformatics" },
-    { "role": "Tutorials Chair", "name": "Leyla Jael Garc\u00eda Castro", "affil": "ZB MED, Germany" },
-    { "role": "OC Member", "name": "Jerven Bolleman", "affil": "Swiss Institute of Bioinformatics" },
-    { "role": "OC Member", "name": "M. Scott Marshall", "affil": "Triply, Netherlands" },
-    { "role": "OC Member", "name": "Andrea Splendiani", "affil": "IQVIA, Switzerland" }
+    { "role": "LOC Chair & Hackathon Chair", "name": "Andra Waagmeester",      "affil": "Amsterdam UMC",                     "linkedin": "https://www.linkedin.com/in/andra-waagmeester-4785792/" },
+    { "role": "LOC Member",                  "name": "Katy Wolstencroft",       "affil": "Amsterdam UMC",                     "linkedin": "https://www.linkedin.com/in/katy-wolstencroft-28060813" },
+    { "role": "LOC Member",                  "name": "Machteld Boonstra",       "affil": "Amsterdam UMC",                     "linkedin": "https://www.linkedin.com/in/machteld-boonstra-4b097a63/" },
+    { "role": "LOC Member",                  "name": "Tooba Abbassi-Daloii",    "affil": "Amsterdam UMC",                     "linkedin": "https://www.linkedin.com/in/tooba-abbassi-daloii/" },
+    { "role": "Administration",              "name": "Dana Cernoskova",         "affil": "Scientifika",                       "linkedin": "https://www.linkedin.com/in/dana-cernoskova-523a4927/" },
+    { "role": "Scientific Chair",            "name": "Sabine \u00d6sterle",     "affil": "Swiss Institute of Bioinformatics", "linkedin": "https://www.linkedin.com/in/sabine-%C3%B6sterle-09310577/" },
+    { "role": "Tutorials Chair",             "name": "Leyla Jael Garc\u00eda Castro", "affil": "ZB MED, Germany",            "linkedin": "https://www.linkedin.com/in/leyla-jael-castro-85384a17/" },
+    { "role": "OC Member",                   "name": "Jerven Bolleman",         "affil": "Swiss Institute of Bioinformatics", "linkedin": "https://www.linkedin.com/in/jervenbolleman/" },
+    { "role": "OC Member",                   "name": "M. Scott Marshall",       "affil": "Triply, Netherlands",               "linkedin": "https://www.linkedin.com/in/m-scott-marshall-a224645/" },
+    { "role": "OC Member",                   "name": "Andrea Splendiani",       "affil": "IQVIA, Switzerland",                "linkedin": "https://www.linkedin.com/in/andreasplendiani/" }
   ],
 
   "days": [
