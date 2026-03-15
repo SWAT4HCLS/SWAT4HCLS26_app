@@ -1555,20 +1555,35 @@
     {
       "name": "Hotel Levell",
       "address": "Hullenbergweg 353, Amsterdam",
-      "distance": "5 min walk",
-      "url": "https://www.hotellevel.nl"
+      "distance": "1 metro stop + 5 min walk · or 20 min walk",
+      "url": "https://www.hotellevel.nl",
+      "book": [
+        {"label": "Booking.com", "url": "https://www.booking.com/hotel/nl/levell.html"},
+        {"label": "Agoda", "url": "https://www.agoda.com/search?city=11813&textToSearch=Hotel+Levell+Amsterdam"},
+        {"label": "Airbnb", "url": "https://www.airbnb.com/s/Hullenbergweg-353--Amsterdam/homes"}
+      ]
     },
     {
       "name": "Joy Hotel",
       "address": "Hullenbergweg 385, Amsterdam",
-      "distance": "5 min walk",
-      "url": "https://www.joyhotel.nl"
+      "distance": "1 metro stop + 5 min walk · or 20 min walk",
+      "url": "https://www.joyhotel.nl",
+      "book": [
+        {"label": "Booking.com", "url": "https://www.booking.com/hotel/nl/joy-amsterdam.html"},
+        {"label": "Agoda", "url": "https://www.agoda.com/search?city=11813&textToSearch=Joy+Hotel+Amsterdam"},
+        {"label": "Airbnb", "url": "https://www.airbnb.com/s/Hullenbergweg-385--Amsterdam/homes"}
+      ]
     },
     {
       "name": "Fletcher Hotel Amsterdam",
       "address": "Schepenbergweg 50, Amsterdam",
-      "distance": "1 metro stop / 12 min walk",
-      "url": "https://www.fletcherhotels.nl"
+      "distance": "15–20 min walk",
+      "url": "https://www.fletcherhotels.nl",
+      "book": [
+        {"label": "Booking.com", "url": "https://www.booking.com/hotel/nl/fletcher-hotel-amsterdam.html"},
+        {"label": "Agoda", "url": "https://www.agoda.com/search?city=11813&textToSearch=Fletcher+Hotel+Amsterdam"},
+        {"label": "Airbnb", "url": "https://www.airbnb.com/s/Schepenbergweg-50--Amsterdam/homes"}
+      ]
     }
   ],
   "sponsors": [

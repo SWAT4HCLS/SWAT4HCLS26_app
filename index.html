@@ -1139,12 +1139,15 @@ ${navSections || `
 
     // Hotels
     $('#hotels-list').innerHTML = D.hotels.map(h => `
-<div class="hotel-row">
-  <div>
-    <div class="hn"><a href="${esc(h.url)}" target="_blank" rel="noopener" style="color:var(--tx);text-decoration:none">${esc(h.name)}</a></div>
-    <div class="ha">${esc(h.address)}</div>
+<div class="hotel-row" style="flex-direction:column;align-items:flex-start;gap:6px">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;width:100%">
+    <div>
+      <div class="hn"><a href="${esc(h.url)}" target="_blank" rel="noopener" style="color:var(--tx);text-decoration:none">${esc(h.name)}</a></div>
+      <div class="ha">${esc(h.address)}</div>
+    </div>
+    <div class="hdist" style="white-space:nowrap;margin-left:10px">${esc(h.distance)}</div>
   </div>
-  <div class="hdist">${esc(h.distance)}</div>
+  ${h.book&&h.book.length?`<div style="display:flex;flex-wrap:wrap;gap:6px">${h.book.map(b=>`<a href="${esc(b.url)}" target="_blank" rel="noopener" style="font-size:11px;padding:4px 10px;border-radius:12px;border:1px solid var(--p);color:var(--p);text-decoration:none;font-weight:600">${esc(b.label)}</a>`).join('')}</div>`:''}
 </div>`).join('');
 
     // Apply active tab styling on first render
