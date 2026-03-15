@@ -574,6 +574,21 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
             <button class="btn btn-s btn-sm" onclick="App.copyLink()">Copy link</button>
             <button class="btn btn-s btn-sm" onclick="App.shareCard()">Share</button>
           </div>
+          <div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--brd);text-align:center">
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;
+                        letter-spacing:.8px;color:var(--tx2);margin-bottom:12px">
+              Scan to receive my card
+            </div>
+            <img id="card-qr" src="" alt="Conference card QR code" loading="lazy"
+                 style="width:180px;height:180px;border-radius:10px;
+                        border:2px solid var(--brd);display:block;margin:0 auto;
+                        background:var(--sur2)">
+            <a id="qr-dl" href="" target="_blank" rel="noopener"
+               style="display:inline-block;margin-top:10px;font-size:12px;
+                      color:var(--p);text-decoration:none;font-weight:600">
+              ⬇ Save QR image
+            </a>
+          </div>
         </div>
       </div>
 
@@ -1042,6 +1057,7 @@ const App = (() => {
   ${tags.length?`<div style="margin-top:10px">${tags.map(t=>`<span class="tag" style="background:rgba(255,255,255,.15);color:#fff">${esc(t)}</span>`).join('')}</div>`:''}
   <div class="pc-link" id="pc-url">${buildLink()}</div>
 </div>`;
+      refreshQR();
     } else {
       $('#me-card-form').style.display='block';
       $('#me-card-view').style.display='none';
@@ -1070,6 +1086,16 @@ const App = (() => {
     if(!PROFILE) return '';
     const data = btoa(unescape(encodeURIComponent(JSON.stringify(PROFILE))));
     return location.href.split('#')[0]+'#card/'+data;
+  }
+  function refreshQR() {
+    const url = buildLink();
+    if(!url) return;
+    const enc  = encodeURIComponent(url);
+    const base = `https://api.qrserver.com/v1/create-qr-code/?color=003d6b&bgcolor=ffffff&qzone=2&data=${enc}`;
+    const img  = document.getElementById('card-qr');
+    const dl   = document.getElementById('qr-dl');
+    if(img) img.src = base + '&size=220x220';
+    if(dl)  dl.href = base + '&size=400x400&format=png';
   }
   function copyLink() {
     const link=buildLink(); if(!link) return;
