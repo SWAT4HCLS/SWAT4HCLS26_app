@@ -442,58 +442,97 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
 
   <!-- ════ VENUE ════ -->
   <section id="p-venue" class="pane">
-    <div class="wrap">
+
+    <!-- Sub-tab bar -->
+    <div style="display:flex;background:var(--sur);border-bottom:1px solid var(--brd);
+                position:sticky;top:0;z-index:5">
+      <button class="vtab on" data-v="address" onclick="App.vtab('address')"
+        style="flex:1;padding:11px 4px;font-size:12px;font-weight:700;border:none;
+               background:none;cursor:pointer;border-bottom:2px solid transparent;
+               color:var(--tx2);-webkit-tap-highlight-color:transparent">📍 Address</button>
+      <button class="vtab" data-v="travel" onclick="App.vtab('travel')"
+        style="flex:1;padding:11px 4px;font-size:12px;font-weight:700;border:none;
+               background:none;cursor:pointer;border-bottom:2px solid transparent;
+               color:var(--tx2);-webkit-tap-highlight-color:transparent">🚆 Getting here</button>
+      <button class="vtab" data-v="inside" onclick="App.vtab('inside')"
+        style="flex:1;padding:11px 4px;font-size:12px;font-weight:700;border:none;
+               background:none;cursor:pointer;border-bottom:2px solid transparent;
+               color:var(--tx2);-webkit-tap-highlight-color:transparent">🏥 Inside AMC</button>
+      <button class="vtab" data-v="hotels" onclick="App.vtab('hotels')"
+        style="flex:1;padding:11px 4px;font-size:12px;font-weight:700;border:none;
+               background:none;cursor:pointer;border-bottom:2px solid transparent;
+               color:var(--tx2);-webkit-tap-highlight-color:transparent">🏨 Hotels</button>
+    </div>
+
+    <!-- Address panel -->
+    <div id="vp-address" class="vpane wrap">
       <div class="card">
-        <div class="lbl">Location</div>
+        <div class="lbl">Conference venue</div>
         <div class="map-wrap">
           <iframe loading="lazy" allowfullscreen
             src="https://www.openstreetmap.org/export/embed.html?bbox=4.948%2C52.295%2C4.968%2C52.305&layer=mapnik&marker=52.2996%2C4.9583"
-            title="Amsterdam UMC AMC"></iframe>
+            title="Amsterdam UMC AMC on OpenStreetMap"></iframe>
         </div>
-        <div class="info-list" style="margin-top:14px">
-          <div class="ii"><div class="ii-ico">🏥</div><div class="ii-tx">
-            <div class="il">Amsterdam UMC — AMC location</div>
-            <div class="iv">Meibergdreef 9, 1105 AZ Amsterdam<br>
-              <a href="https://maps.google.com/?q=Amsterdam+UMC+AMC+Meibergdreef+9+Amsterdam" target="_blank">Google Maps</a> &middot;
-              <a href="https://www.openstreetmap.org/?mlat=52.2996&mlon=4.9583#map=16/52.2996/4.9583" target="_blank">OpenStreetMap</a>
-            </div>
-          </div></div>
+        <div style="margin-top:14px;padding:12px;background:var(--sur2);border-radius:var(--rs)">
+          <div style="font-size:15px;font-weight:700">Amsterdam UMC — AMC location</div>
+          <div style="font-size:13px;color:var(--tx2);margin-top:4px;line-height:1.6">
+            Meibergdreef 9<br>1105 AZ Amsterdam-Zuidoost<br>Netherlands<br>
+            📞 <a href="tel:+31205669111" style="color:var(--p)">+31 20 566 9111</a>
+          </div>
         </div>
       </div>
-
       <div class="card" style="margin-top:10px">
-        <div class="lbl">Getting there</div>
-        <div class="info-list" id="transport-list"></div>
+        <div class="lbl">Open in map app</div>
+        <div id="map-links-row" class="link-row"></div>
+        <p style="font-size:11px;color:var(--tx2);margin-top:10px">
+          OpenStreetMap is preferred — free, open-source, and works offline via OsmAnd.
+        </p>
       </div>
+      <div id="alert-card" style="display:none;margin-top:10px;padding:12px 14px;
+           background:#fff3e0;border-radius:var(--r);border-left:4px solid var(--acc);
+           font-size:13px;color:#5d3200;line-height:1.55"></div>
+    </div>
+
+    <!-- Getting here panel -->
+    <div id="vp-travel" class="vpane wrap" style="display:none">
+      <div id="alert-card-travel" style="display:none;margin-bottom:10px;padding:12px 14px;
+           background:#fff3e0;border-radius:var(--r);border-left:4px solid var(--acc);
+           font-size:13px;color:#5d3200;line-height:1.55"></div>
+      <div id="from-anywhere-list"></div>
 
       <div class="card" style="margin-top:10px">
         <div class="lbl">Public transport tickets (2026)</div>
         <p style="font-size:12px;color:var(--tx2);margin-bottom:12px;line-height:1.6">
-          <strong>Easiest:</strong> Tap your contactless bank card or phone on any GVB/NS reader (OVpay).
-          No ticket to buy — billed daily, GVB capped at €10.50/day.
+          <strong>Easiest:</strong> Tap your contactless bank card or phone (OVpay) on any
+          GVB/NS reader — no ticket to buy, billed daily, GVB capped at €10.50/day.
         </p>
         <table class="t-table">
           <thead><tr><th>Ticket</th><th>Network</th><th>Price</th></tr></thead>
           <tbody id="ticket-tbody"></tbody>
         </table>
-        <p style="font-size:11px;color:var(--tx2);margin-top:8px">Prices 2026. Verify at <a href="https://www.gvb.nl/en/prices" target="_blank">gvb.nl</a> or <a href="https://www.ns.nl/en" target="_blank">ns.nl</a></p>
+        <div class="link-row" style="margin-top:10px">
+          <a class="lnk" href="https://www.gvb.nl/en/prices" target="_blank">🎫 GVB fares</a>
+          <a class="lnk" href="https://www.ns.nl/en" target="_blank">🚆 NS trains</a>
+          <a class="lnk" href="https://9292.nl/en" target="_blank">🗺️ 9292 planner</a>
+          <a class="lnk" href="https://moovitapp.com/index/en/public_transit-Academisch_Medisch_Centrum_AMC-Netherlands-site_18111565-101" target="_blank">📱 Moovit</a>
+        </div>
+        <p style="font-size:11px;color:var(--tx2);margin-top:8px">Prices 2026. Always verify before travel.</p>
       </div>
+    </div>
 
-      <div class="card" style="margin-top:10px">
+    <!-- Inside AMC panel -->
+    <div id="vp-inside" class="vpane wrap" style="display:none">
+      <div id="inside-amc-card"></div>
+    </div>
+
+    <!-- Hotels panel -->
+    <div id="vp-hotels" class="vpane wrap" style="display:none">
+      <div class="card">
         <div class="lbl">Nearby hotels</div>
         <div id="hotels-list"></div>
       </div>
-
-      <div class="card" style="margin-top:10px">
-        <div class="lbl">Useful links</div>
-        <div class="link-row">
-          <a class="lnk" href="https://9292.nl/en" target="_blank">🗺️ 9292 journey planner</a>
-          <a class="lnk" href="https://www.gvb.nl/en/prices" target="_blank">🎫 GVB fares</a>
-          <a class="lnk" href="https://www.ns.nl/en" target="_blank">🚆 NS trains</a>
-          <a class="lnk" href="https://www.iamsterdam.com/en/travel-stay/getting-around/public-transport/pay-for-public-transport" target="_blank">💳 How to pay</a>
-        </div>
-      </div>
     </div>
+
   </section>
 
   <!-- ════ ME ════ -->
@@ -666,10 +705,16 @@ const App = (() => {
     // Hosted by
     const hb = $('#hosted-by');
     if(hb && D.hosted_by) {
-      hb.innerHTML = D.hosted_by.map(dept => `
+      hb.innerHTML = `
+        <div style="margin-bottom:10px">
+          <img src="https://www.amsterdamumc.org/static/researchpresentation/images/logo-amsterdamumc.svg"
+               alt="Amsterdam UMC"
+               style="height:36px;max-width:180px;object-fit:contain"
+               onerror="this.style.display='none'">
+        </div>` +
+        D.hosted_by.map(dept => `
         <div style="display:flex;align-items:center;gap:10px">
-          <img src="https://www.swat4ls.org/wp-content/uploads/2022/07/swat4ls-square-logo.png"
-               style="width:28px;height:28px;border-radius:4px;flex-shrink:0" alt="">
+          <div style="width:6px;height:6px;border-radius:50%;background:var(--p);flex-shrink:0"></div>
           <span style="font-size:13px;font-weight:500;color:var(--tx)">${esc(dept)}</span>
         </div>`).join('');
     }
@@ -818,27 +863,93 @@ const App = (() => {
   }
 
   /* ── VENUE ────────────────────────────────────────────────── */
+  let curVtab = 'address';
+  function vtab(v) {
+    curVtab = v;
+    $$('.vtab').forEach(b => {
+      const on = b.dataset.v === v;
+      b.classList.toggle('on', on);
+      b.style.borderBottomColor = on ? 'var(--p)' : 'transparent';
+      b.style.color = on ? 'var(--p)' : 'var(--tx2)';
+    });
+    $$('.vpane').forEach(p => p.style.display = p.id === 'vp-'+v ? 'block' : 'none');
+  }
   function renderVenue() {
-    // Transport
-    $('#transport-list').innerHTML = D.transport.map(t => `
-<div class="ii"><div class="ii-ico">${t.icon}</div><div class="ii-tx">
-  <div class="il">${esc(t.label)}</div>
-  <div class="iv">${esc(t.detail)}</div>
-</div></div>`).join('');
+    // Travel alert
+    ['alert-card','alert-card-travel'].forEach(id => {
+      const el = $('#'+id);
+      if(el && D.travel_alert) { el.textContent = D.travel_alert; el.style.display='block'; }
+    });
+
+    // Map links
+    $('#map-links-row').innerHTML = (D.map_links||[]).map(l =>
+      `<a class="lnk" href="${esc(l.url)}" target="_blank" rel="noopener"
+          style="${l.preferred?'border-color:var(--p);color:var(--p);font-weight:700':''}">${esc(l.label)}</a>`
+    ).join('');
+
+    // From anywhere
+    $('#from-anywhere-list').innerHTML = (D.from_anywhere||[]).map(m => `
+<div class="card" style="margin-bottom:10px">
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+    <span style="font-size:22px">${m.icon}</span>
+    <span style="font-size:15px;font-weight:700">${esc(m.label)}</span>
+  </div>
+  <ol style="padding-left:18px;display:flex;flex-direction:column;gap:7px">
+    ${(m.steps||[]).map(s=>`<li style="font-size:13px;color:var(--tx);line-height:1.55">${esc(s)}</li>`).join('')}
+  </ol>
+  ${m.links&&m.links.length?`<div class="link-row" style="margin-top:10px">${m.links.map(l=>`<a class="lnk" href="${esc(l.url)}" target="_blank" rel="noopener" style="font-size:12px">${esc(l.label)}</a>`).join('')}</div>`:''}
+</div>`).join('');
+
     // Tickets
     $('#ticket-tbody').innerHTML = D.tickets.map(t => `
 <tr><td>${esc(t.name)}${t.note?`<div class="t-note">${esc(t.note)}</div>`:''}</td>
 <td style="white-space:nowrap;color:var(--tx2);font-size:12px">${esc(t.network)}</td>
 <td class="t-price">${esc(t.price)}</td></tr>`).join('');
+
+    // Inside AMC
+    const nav = D.indoor_nav || {};
+    $('#inside-amc-card').innerHTML = `
+<div class="card">
+  <div class="lbl">Address</div>
+  <div style="font-size:13px;line-height:1.7;white-space:pre-line;color:var(--tx)">${esc(nav.address_full||'')}</div>
+  ${nav.phone?`<div style="margin-top:8px;font-size:13px">📞 <a href="tel:${esc(nav.phone)}" style="color:var(--p)">${esc(nav.phone)}</a></div>`:''}
+</div>
+<div class="card" style="margin-top:10px">
+  <div class="lbl">From main entrance to conference rooms</div>
+  ${nav.conference_rooms?`<div style="margin-bottom:10px;padding:8px 10px;background:#e8f5e9;border-radius:var(--rs);font-size:13px;font-weight:600;color:#1b5e20">📍 ${esc(nav.conference_rooms)}</div>`:''}
+  <ol style="padding-left:18px;display:flex;flex-direction:column;gap:8px">
+    ${(nav.steps_from_entrance||[]).map((s,i)=>`
+    <li style="font-size:13px;line-height:1.55;color:var(--tx)">
+      <strong style="color:var(--p)">Step ${i+1}.</strong> ${esc(s)}
+    </li>`).join('')}
+  </ol>
+</div>
+<div class="card" style="margin-top:10px">
+  <div class="lbl">Practical tips</div>
+  <ul style="padding-left:18px;display:flex;flex-direction:column;gap:7px">
+    ${(nav.tips||[]).map(t=>`<li style="font-size:13px;color:var(--tx2);line-height:1.55">${esc(t)}</li>`).join('')}
+  </ul>
+</div>
+<div class="card" style="margin-top:10px">
+  <div class="lbl">Indoor maps (experimental)</div>
+  <div class="link-row">
+    <a class="lnk" href="https://www.openstreetmap.org/?mlat=52.2996&mlon=4.9583#map=18/52.2996/4.9583" target="_blank" rel="noopener">🗺️ OSM indoor (zoom in)</a>
+    <a class="lnk" href="https://www.amsterdamumc.nl/en/address" target="_blank" rel="noopener">🏥 AMC wayfinding</a>
+  </div>
+</div>`;
+
     // Hotels
     $('#hotels-list').innerHTML = D.hotels.map(h => `
 <div class="hotel-row">
   <div>
-    <div class="hn"><a href="${esc(h.url)}" target="_blank" style="color:var(--tx);text-decoration:none">${esc(h.name)}</a></div>
+    <div class="hn"><a href="${esc(h.url)}" target="_blank" rel="noopener" style="color:var(--tx);text-decoration:none">${esc(h.name)}</a></div>
     <div class="ha">${esc(h.address)}</div>
   </div>
   <div class="hdist">${esc(h.distance)}</div>
 </div>`).join('');
+
+    // Apply active tab styling on first render
+    vtab(curVtab);
   }
 
   /* ── ME ───────────────────────────────────────────────────── */

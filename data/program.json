@@ -580,31 +580,132 @@
     "embed_url": "https://www.openstreetmap.org/export/embed.html?bbox=4.948%2C52.295%2C4.968%2C52.305&layer=mapnik&marker=52.2996%2C4.9583"
   },
 
+  "travel_alert": "⚠️ Extensive road and rail maintenance is scheduled throughout 2026 in Amsterdam. Check live travel conditions before setting off.",
+
+  "from_anywhere": [
+    {
+      "id": "plane",
+      "icon": "✈️",
+      "label": "From Schiphol Airport",
+      "steps": [
+        "Take NS Sprinter (platform -1) direct to Amsterdam Holendrecht — no changes needed.",
+        "Journey time: ~25 min. Single ticket from €5.50 (OVpay: just tap your bank card).",
+        "Exit Holendrecht station, cross the station square and walk over the bridge — the AMC main entrance is visible directly ahead. (~5 min walk)"
+      ],
+      "links": [
+        { "label": "🗺️ Plan on 9292.nl", "url": "https://9292.nl/en/journey-planner?fromCity=Amsterdam+Airport+Schiphol&toAddress=Meibergdreef+9+Amsterdam" },
+        { "label": "🚆 NS train times", "url": "https://www.ns.nl/en/journeyplanner/#/?from=Schiphol+Airport&to=Amsterdam+Holendrecht" }
+      ]
+    },
+    {
+      "id": "centraal",
+      "icon": "🚇",
+      "label": "From Amsterdam Centraal",
+      "steps": [
+        "Metro line 50 (direction Gein or Gaasperplas) from Amsterdam Centraal → exit at Amsterdam Holendrecht. Journey ~35 min.",
+        "OR: NS Sprinter from Amsterdam Centraal to Amsterdam Holendrecht. Journey ~28 min.",
+        "Exit station, cross the square and walk over the bridge to the AMC main entrance. (~5 min walk)"
+      ],
+      "links": [
+        { "label": "🗺️ Plan on 9292.nl", "url": "https://9292.nl/en/journey-planner?fromAddress=Amsterdam+Centraal&toAddress=Meibergdreef+9+Amsterdam" },
+        { "label": "🚇 GVB metro info", "url": "https://www.gvb.nl/en/metro" }
+      ]
+    },
+    {
+      "id": "bus",
+      "icon": "🚌",
+      "label": "By bus",
+      "steps": [
+        "Bus lines 120, 276, 370, 41, 47 and night bus N85 all stop near Amsterdam UMC AMC.",
+        "Nearest stops: Holendrechtplein, Amsterdam Meibergdreef, Tafelbergweg.",
+        "Use 9292.nl or Moovit to plan from your starting point."
+      ],
+      "links": [
+        { "label": "🗺️ Plan on 9292.nl", "url": "https://9292.nl/en" },
+        { "label": "📱 Moovit directions", "url": "https://moovitapp.com/index/en/public_transit-Academisch_Medisch_Centrum_AMC-Netherlands-site_18111565-101" }
+      ]
+    },
+    {
+      "id": "car",
+      "icon": "🚗",
+      "label": "By car",
+      "steps": [
+        "Signposted from Amsterdam ring road A10 (exit S112), and from A2 and A9.",
+        "Paid parking available on site.",
+        "⚠️ Allow extra travel time — extensive road maintenance throughout 2026. Check Waze or Google Maps for live conditions."
+      ],
+      "links": [
+        { "label": "🗺️ OpenStreetMap route", "url": "https://www.openstreetmap.org/directions?from=&to=52.2996%2C4.9583#map=15/52.2996/4.9583" },
+        { "label": "📍 Waze", "url": "https://www.waze.com/live-map/directions/amsterdam-umc-locatie-amc-meibergdreef-9?to=place.w.3277323.32511085.322686" }
+      ]
+    },
+    {
+      "id": "bike",
+      "icon": "🚲",
+      "label": "By bicycle",
+      "steps": [
+        "Cycle via the new park along Meibergdreef.",
+        "Free covered bike parking available beneath the stairs opposite the main entrance.",
+        "Use CyclOSM for a cycling-optimised map."
+      ],
+      "links": [
+        { "label": "🗺️ CyclOSM cycling map", "url": "https://www.cyclosm.org/#map=15/52.2996/4.9583" }
+      ]
+    }
+  ],
+
+  "indoor_nav": {
+    "title": "Inside Amsterdam UMC — AMC",
+    "address_full": "Amsterdam UMC — AMC location\nMeibergdreef 9\n1105 AZ Amsterdam-Zuidoost\nNetherlands",
+    "phone": "+31 20 566 9111",
+    "conference_rooms": "TBA — room assignments will be posted here and on the interactive programme",
+    "steps_from_entrance": [
+      "Enter via the Main Entrance at Meibergdreef 9 (directly opposite the bridge from Holendrecht station).",
+      "Follow SWAT4HCLS signage inside the building.",
+      "Registration desk: TBA (will be updated before the conference).",
+      "Conference auditorium / lecture halls: TBA.",
+      "Ask at the hospital information desk if in doubt — staff speak English."
+    ],
+    "tips": [
+      "The AMC is a large hospital campus — allow 5 extra minutes to find your room on Day 1.",
+      "Toilets and a canteen are available throughout the building.",
+      "Accessibility: the building is fully wheelchair accessible. Contact swat4hcls@gmail.com for specific needs."
+    ]
+  },
+
+  "map_links": [
+    { "label": "🗺️ OpenStreetMap", "url": "https://www.openstreetmap.org/?mlat=52.2996&mlon=4.9583#map=17/52.2996/4.9583", "preferred": true },
+    { "label": "🌐 OsmAnd (mobile)", "url": "geo:52.2996,4.9583?q=Amsterdam+UMC+AMC" },
+    { "label": "📍 Google Maps", "url": "https://maps.google.com/?q=52.2996,4.9583" },
+    { "label": "🍎 Apple Maps", "url": "https://maps.apple.com/?ll=52.2996,4.9583&q=Amsterdam+UMC+AMC" },
+    { "label": "🚗 Waze", "url": "https://www.waze.com/live-map/directions/amsterdam-umc-locatie-amc-meibergdreef-9?to=place.w.3277323.32511085.322686" }
+  ],
+
   "transport": [
     {
-      "icon": "🚇",
-      "label": "Nearest stop",
-      "detail": "Amsterdam Holendrecht (Metro 50 / NS train). Exit station, cross the square and walk over the bridge \u2014 the AMC main entrance is visible from the platform."
+      "icon": "🚉",
+      "label": "Nearest station",
+      "detail": "Amsterdam Holendrecht — served by Metro 50, Metro 54, and NS Sprinter. Exit station, cross the square and walk over the bridge (~5 min) — the AMC main entrance is visible directly ahead."
     },
     {
       "icon": "🏙️",
       "label": "From Amsterdam Centraal",
-      "detail": "Metro 50 direction Gein/Gaasperplas \u2192 exit Holendrecht (~35 min). Or NS Sprinter to Amsterdam Holendrecht (~28 min). Then 5-min walk."
+      "detail": "Metro 50 (direction Gein/Gaasperplas) → Holendrecht (~35 min). Or NS Sprinter → Holendrecht (~28 min)."
     },
     {
       "icon": "✈️",
       "label": "From Schiphol Airport",
-      "detail": "NS Sprinter direct to Amsterdam Holendrecht (~25 min, \u20ac5.50 one-way). Or Metro 50 via Centraal. Walk 5 min to AMC entrance."
+      "detail": "NS Sprinter direct to Amsterdam Holendrecht (~25 min, from €5.50 OVpay). Walk 5 min to AMC entrance."
     },
     {
       "icon": "🚲",
       "label": "By bicycle",
-      "detail": "Cycle via the new park along Meibergdreef. Covered bike parking available beneath the stairs opposite the main entrance."
+      "detail": "Via the park along Meibergdreef. Free covered bike parking opposite the main entrance."
     },
     {
       "icon": "🚗",
       "label": "By car",
-      "detail": "Signposted from Amsterdam ring road A10, as well as A2 and A9. Paid parking on site. Allow extra time \u2014 construction works in the area."
+      "detail": "Signposted from A10 (exit S112), A2, and A9. Paid parking on site. ⚠️ Allow extra time — 2026 road works."
     }
   ],
 
