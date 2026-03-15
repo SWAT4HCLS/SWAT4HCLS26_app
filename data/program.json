@@ -256,9 +256,12 @@
           "time": "19:00", "end": "22:00",
           "type": "social",
           "title": "Conference Dinner",
-          "room": "Venue TBA \u2014 Amsterdam city centre",
-          "abstract": "Social dinner included with registration. Details will be announced closer to the event. A great opportunity to connect with fellow attendees.",
-          "tags": ["social", "dinner", "networking"]
+          "room": "Hasta La Vista",
+          "abstract": "Social dinner included with registration. A great opportunity to connect with fellow attendees over food and drinks.",
+          "tags": ["social", "dinner", "networking"],
+          "links": [
+            { "label": "🌐 Venue website", "url": "https://hastalavista.baby" }
+          ]
         }
       ]
     },
