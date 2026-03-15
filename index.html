@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#1a237e">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SWAT4HCLS">
+<link rel="manifest" href="manifest.json">
+<title>SWAT4HCLS 2026</title>
+<style>
+/* ── Reset ──────────────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden;-webkit-text-size-adjust:100%}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  background:#f0f2f5;color:#1c2b3a;font-size:15px;line-height:1.5}
+
+/* ── Tokens ─────────────────────────────────────────────────────── */
+:root{
+  --p:#1565c0;--p2:#1976d2;--pd:#0d47a1;
+  --g:#2e7d32;
+  --acc:#e65100;
+  --sur:#fff;--sur2:#f5f7fa;--brd:#dde3ec;
+  --tx:#1c2b3a;--tx2:#5a6980;
+  --nav:60px;--safe:env(safe-area-inset-bottom,0px);
+  --hdr:54px;--r:12px;--rs:8px;
+}
+
+/* ── Shell ──────────────────────────────────────────────────────── */
+#app{display:flex;flex-direction:column;height:100%;height:100dvh}
+#hdr{
+  background:linear-gradient(135deg,var(--pd) 0%,var(--p) 100%);
+  color:#fff;
+  padding:env(safe-area-inset-top,0) 16px 0;
+  height:calc(var(--hdr) + env(safe-area-inset-top,0px));
+  display:flex;align-items:flex-end;padding-bottom:10px;
+  flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.25);z-index:10
+}
+#hdr-name{font-size:20px;font-weight:800;letter-spacing:-.3px;flex:1}
+#hdr-sub{font-size:10px;opacity:.7;display:block;font-weight:400;letter-spacing:.2px}
+#hdr-right{text-align:right;font-size:11px;opacity:.8;line-height:1.4}
+
+#scroll{flex:1;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch}
+.pane{display:none;min-height:100%;padding-bottom:calc(var(--nav) + var(--safe) + 12px)}
+.pane.on{display:block}
+
+/* ── Bottom Nav ─────────────────────────────────────────────────── */
+#nav{
+  background:var(--sur);border-top:1px solid var(--brd);
+  display:flex;height:calc(var(--nav) + var(--safe));
+  padding-bottom:var(--safe);flex-shrink:0;
+  box-shadow:0 -1px 6px rgba(0,0,0,.07);z-index:10
+}
+.nb{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:3px;border:none;background:none;cursor:pointer;color:var(--tx2);
+  padding:6px 2px;-webkit-tap-highlight-color:transparent;position:relative;transition:color .15s}
+.nb.on{color:var(--p)}
+.nb svg{width:22px;height:22px}
+.nb span{font-size:10px;font-weight:600;letter-spacing:.2px}
+.nb .bdg{position:absolute;top:6px;right:calc(50% - 16px);
+  background:#d32f2f;color:#fff;border-radius:10px;
+  min-width:16px;height:16px;font-size:10px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;padding:0 3px;display:none}
+
+/* ── Cards / Sections ───────────────────────────────────────────── */
+.wrap{padding:14px}
+.wrap+.wrap{padding-top:0}
+.card{background:var(--sur);border-radius:var(--r);padding:16px;
+  box-shadow:0 1px 6px rgba(0,0,0,.07)}
+.card+.card,.card+.bh-item,.bh-item+.card,.bh-item+.bh-item{margin-top:10px}
+.lbl{font-size:11px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.8px;color:var(--tx2);margin-bottom:12px}
+
+/* ── Pill tags ──────────────────────────────────────────────────── */
+.tag{display:inline-block;padding:2px 8px;border-radius:20px;
+  font-size:10px;background:var(--sur2);color:var(--tx2);margin:2px}
+.pill{display:inline-flex;align-items:center;padding:3px 9px;
+  border-radius:20px;font-size:11px;font-weight:600}
+.pt-keynote{background:#fff3e0;color:#bf360c}
+.pt-tutorial{background:#e8f5e9;color:#1b5e20}
+.pt-papers{background:#e3f2fd;color:#0d47a1}
+.pt-demo{background:#f3e5f5;color:#4a148c}
+.pt-plenary{background:#ede7f6;color:#311b92}
+.pt-hackathon{background:#e8f5e9;color:#1b5e20}
+.pt-social{background:#fce4ec;color:#880e4f}
+.pt-break,.pt-logistics{background:var(--sur2);color:var(--tx2)}
+
+/* ── HOME ───────────────────────────────────────────────────────── */
+.hero{
+  background:linear-gradient(135deg,var(--pd),var(--p2));
+  color:#fff;padding:24px 16px 20px
+}
+.hero h1{font-size:28px;font-weight:800;letter-spacing:-.5px}
+.hero-ed{font-size:13px;opacity:.75;margin-bottom:14px}
+.hero-row{display:flex;flex-wrap:wrap;gap:14px}
+.hero-item{display:flex;align-items:center;gap:6px;font-size:13px}
+.hero-item svg{width:15px;height:15px;opacity:.9}
+
+.cd-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.cd-cell{background:var(--p);color:#fff;border-radius:var(--rs);
+  padding:10px 4px;text-align:center}
+.cd-cell.live{background:var(--g)}
+.cd-num{font-size:28px;font-weight:800;line-height:1}
+.cd-lbl{font-size:9px;letter-spacing:.5px;opacity:.8;margin-top:2px}
+
+.link-row{display:flex;flex-wrap:wrap;gap:8px}
+.lnk{display:inline-flex;align-items:center;gap:6px;padding:9px 14px;
+  border-radius:20px;font-size:13px;font-weight:600;text-decoration:none;
+  border:1.5px solid var(--brd);color:var(--tx);background:var(--sur);
+  -webkit-tap-highlight-color:transparent}
+.lnk:active{background:var(--sur2)}
+
+.sp-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.sp-chip{padding:7px 16px;border-radius:20px;font-size:13px;font-weight:600;
+  text-decoration:none}
+.sp-plat{background:#e8eaf6;color:#1a237e}
+.sp-gold{background:#fff8e1;color:#e65100}
+
+/* ── PROGRAMME ──────────────────────────────────────────────────── */
+.day-bar{display:flex;gap:6px;padding:10px 14px;overflow-x:auto;
+  background:var(--sur);border-bottom:1px solid var(--brd);
+  scrollbar-width:none;flex-shrink:0;position:sticky;top:0;z-index:5}
+.day-bar::-webkit-scrollbar{display:none}
+.dc{flex-shrink:0;padding:8px 14px;border-radius:20px;font-size:13px;
+  font-weight:600;border:1.5px solid var(--brd);background:var(--sur);
+  color:var(--tx2);cursor:pointer;-webkit-tap-highlight-color:transparent;
+  transition:all .15s;text-align:center}
+.dc.on{background:var(--p);color:#fff;border-color:var(--p)}
+.dc small{font-size:10px;display:block;opacity:.7;margin-top:1px}
+
+.sess-list{padding:10px 14px;display:flex;flex-direction:column;gap:7px}
+.sess{background:var(--sur);border-radius:var(--r);overflow:hidden;
+  box-shadow:0 1px 5px rgba(0,0,0,.07);border-left:4px solid var(--p);
+  cursor:pointer;-webkit-tap-highlight-color:transparent;transition:opacity .1s}
+.sess:active{opacity:.85}
+.sess.t-keynote{border-left-color:#bf360c}
+.sess.t-tutorial{border-left-color:var(--g)}
+.sess.t-social{border-left-color:#880e4f}
+.sess.t-hackathon{border-left-color:#6a1b9a}
+.sess.t-demo{border-left-color:#6a1b9a}
+.sess.t-break,.sess.t-logistics{border-left-color:var(--brd);
+  background:var(--sur2);box-shadow:none}
+.sess.bk{border-left-color:var(--acc)}
+.sess.bk .bk-icon svg{fill:var(--acc);color:var(--acc)}
+
+.sess-hd{padding:11px 13px;display:flex;align-items:flex-start;gap:9px}
+.sess-time{font-size:11px;color:var(--tx2);font-weight:600;
+  white-space:nowrap;padding-top:2px;min-width:36px}
+.sess-body{flex:1;min-width:0}
+.sess-title{font-size:14px;font-weight:600;line-height:1.3}
+.sess-speaker{font-size:12px;color:var(--tx2);margin-top:2px}
+.sess-meta{display:flex;flex-wrap:wrap;align-items:center;gap:5px;margin-top:5px}
+.sess-room{font-size:11px;color:var(--tx2);display:flex;align-items:center;gap:3px}
+.sess-room svg{width:10px;height:10px}
+.sess-actions{display:flex;gap:4px;flex-shrink:0}
+.ib{width:30px;height:30px;border:none;background:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;border-radius:7px;
+  color:var(--tx2);-webkit-tap-highlight-color:transparent}
+.ib:active{background:var(--sur2)}
+
+.sess-det{padding:0 13px 12px;border-top:1px solid var(--brd);display:none}
+.sess-det.on{display:block}
+.sess-abs{font-size:13px;color:var(--tx2);line-height:1.65;margin-top:10px}
+.sess-track{font-size:12px;font-weight:600;color:var(--p);margin-top:6px}
+.sess-slack{font-size:12px;color:var(--tx2);margin-top:4px}
+.note-area{margin-top:10px}
+.note-area label{font-size:12px;font-weight:600;color:var(--tx2);display:block;margin-bottom:5px}
+.note-area textarea{width:100%;border:1.5px solid var(--brd);border-radius:var(--rs);
+  padding:9px;font-size:13px;color:var(--tx);background:var(--sur2);
+  font-family:inherit;resize:vertical;min-height:75px}
+.note-area textarea:focus{outline:none;border-color:var(--p);background:#fff}
+
+/* ── TALKS ──────────────────────────────────────────────────────── */
+.search-bar{padding:10px 14px;background:var(--sur);
+  border-bottom:1px solid var(--brd);position:sticky;top:0;z-index:5}
+.search-bar input{width:100%;padding:10px 14px;border:1.5px solid var(--brd);
+  border-radius:20px;font-size:14px;color:var(--tx);background:var(--sur2);
+  font-family:inherit}
+.search-bar input:focus{outline:none;border-color:var(--p);background:#fff}
+.filter-row{display:flex;gap:6px;overflow-x:auto;padding:8px 14px 0;
+  scrollbar-width:none}
+.filter-row::-webkit-scrollbar{display:none}
+.fc{flex-shrink:0;padding:5px 12px;border-radius:20px;font-size:12px;font-weight:600;
+  border:1.5px solid var(--brd);background:var(--sur);color:var(--tx2);
+  cursor:pointer;-webkit-tap-highlight-color:transparent}
+.fc.on{background:var(--p);color:#fff;border-color:var(--p)}
+.talk-list{padding:10px 14px;display:flex;flex-direction:column;gap:8px}
+.talk-card{background:var(--sur);border-radius:var(--r);padding:14px;
+  box-shadow:0 1px 5px rgba(0,0,0,.07)}
+.talk-type{font-size:10px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.6px;margin-bottom:6px;padding:3px 9px;border-radius:20px;display:inline-block}
+.tt-long-paper{background:#e3f2fd;color:#0d47a1}
+.tt-short-paper{background:#e8f5e9;color:#1b5e20}
+.tt-demo{background:#f3e5f5;color:#4a148c}
+.talk-title{font-size:14px;font-weight:600;line-height:1.35}
+.talk-authors{font-size:12px;color:var(--tx2);margin-top:4px;line-height:1.4}
+.talk-actions{display:flex;align-items:center;justify-content:space-between;margin-top:8px}
+.talk-bk{display:inline-flex;align-items:center;gap:5px;padding:6px 12px;
+  border-radius:20px;font-size:12px;font-weight:600;border:1.5px solid var(--brd);
+  background:var(--sur2);cursor:pointer;color:var(--tx2);
+  -webkit-tap-highlight-color:transparent}
+.talk-bk.on{background:#fff3e0;border-color:var(--acc);color:var(--acc)}
+.no-results{text-align:center;padding:40px 20px;color:var(--tx2);font-size:14px}
+
+/* ── VENUE ──────────────────────────────────────────────────────── */
+.map-wrap{border-radius:var(--r);overflow:hidden;border:1px solid var(--brd);height:210px}
+.map-wrap iframe{width:100%;height:100%;border:0;display:block}
+.info-list{display:flex;flex-direction:column;gap:12px}
+.ii{display:flex;align-items:flex-start;gap:12px}
+.ii-ico{width:36px;height:36px;border-radius:9px;background:var(--sur2);
+  display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.ii-tx .il{font-size:13px;font-weight:600}
+.ii-tx .iv{font-size:12px;color:var(--tx2);margin-top:2px;line-height:1.5}
+.ii-tx .iv a{color:var(--p)}
+.t-table{width:100%;border-collapse:collapse;font-size:13px}
+.t-table th{text-align:left;padding:7px 5px;font-size:10px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.4px;color:var(--tx2);
+  border-bottom:2px solid var(--brd)}
+.t-table td{padding:9px 5px;border-bottom:1px solid var(--brd);vertical-align:top}
+.t-table tr:last-child td{border-bottom:none}
+.t-price{font-weight:700;color:var(--p)}
+.t-note{font-size:11px;color:var(--tx2);margin-top:2px}
+.hotel-row{display:flex;justify-content:space-between;align-items:center;
+  padding:10px 0;border-bottom:1px solid var(--brd)}
+.hotel-row:last-child{border-bottom:none}
+.hn{font-size:14px;font-weight:600}
+.ha{font-size:12px;color:var(--tx2);margin-top:1px}
+.hdist{font-size:11px;font-weight:600;padding:4px 10px;border-radius:20px;
+  background:var(--sur2);color:var(--tx2);white-space:nowrap;margin-left:10px}
+
+/* ── ME ─────────────────────────────────────────────────────────── */
+.pf-form input,.pf-form textarea{
+  width:100%;padding:11px 13px;border:1.5px solid var(--brd);
+  border-radius:var(--rs);font-size:14px;color:var(--tx);
+  background:var(--sur);font-family:inherit;display:block;margin-top:6px}
+.pf-form input:focus,.pf-form textarea:focus{outline:none;border-color:var(--p)}
+.fg{margin-bottom:13px}
+.fg label{font-size:12px;font-weight:600;color:var(--tx2)}
+.fg .hint{font-size:11px;color:var(--tx2);margin-top:3px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  padding:12px 18px;border-radius:var(--rs);font-size:14px;font-weight:600;
+  border:none;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:opacity .15s}
+.btn:active{opacity:.8}
+.btn-p{background:var(--p);color:#fff;width:100%}
+.btn-s{background:var(--sur2);color:var(--tx);border:1.5px solid var(--brd)}
+.btn-sm{padding:8px 14px;font-size:13px}
+.profile-card{
+  background:linear-gradient(135deg,var(--pd),var(--p2));
+  color:#fff;border-radius:var(--r);padding:20px;text-align:center
+}
+.pc-name{font-size:22px;font-weight:800;margin-bottom:2px}
+.pc-role{font-size:13px;opacity:.8}
+.pc-affil{font-size:13px;opacity:.8}
+.pc-badges{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-top:12px}
+.pc-badge{padding:4px 12px;border-radius:20px;font-size:12px;
+  background:rgba(255,255,255,.15)}
+.pc-link{font-size:11px;opacity:.6;margin-top:10px;word-break:break-all}
+.pf-btns{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+
+.bk-section .card{margin-bottom:10px}
+.bk-empty{text-align:center;padding:40px 20px;color:var(--tx2)}
+.bk-empty svg{width:56px;height:56px;opacity:.25;display:block;margin:0 auto 12px}
+.bk-day{font-size:11px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.4px;color:var(--tx2);margin-bottom:6px}
+.bk-title{font-size:15px;font-weight:700}
+.bk-speaker{font-size:12px;color:var(--tx2);margin-top:2px}
+.exp-bar{display:flex;gap:8px;padding:10px 14px;background:var(--sur);
+  border-bottom:1px solid var(--brd);flex-wrap:wrap}
+
+/* ── BioHack ────────────────────────────────────────────────────── */
+.bh-item{background:var(--sur);border-radius:var(--r);padding:16px;
+  box-shadow:0 1px 5px rgba(0,0,0,.07);border-left:4px solid #6a1b9a}
+.bh-fmt{font-size:10px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.6px;color:#6a1b9a;margin-bottom:4px}
+.bh-title{font-size:15px;font-weight:700;line-height:1.3}
+.bh-short{font-size:12px;color:var(--tx2);margin-top:2px;font-style:italic}
+.bh-leads{font-size:12px;color:var(--tx2);margin-top:6px}
+.bh-leads strong{color:var(--tx)}
+.bh-desc{font-size:13px;color:var(--tx2);line-height:1.65;margin-top:8px}
+
+/* ── Toast ──────────────────────────────────────────────────────── */
+#toast{
+  position:fixed;bottom:calc(var(--nav) + var(--safe) + 10px);
+  left:50%;transform:translateX(-50%) translateY(10px);
+  background:#1c2b3a;color:#fff;padding:9px 18px;border-radius:20px;
+  font-size:13px;font-weight:500;opacity:0;transition:all .25s;
+  z-index:200;white-space:nowrap;pointer-events:none
+}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ── Loading ────────────────────────────────────────────────────── */
+#ld{position:fixed;inset:0;background:var(--pd);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  color:#fff;z-index:999;transition:opacity .35s}
+#ld.out{opacity:0;pointer-events:none}
+#ld-logo{font-size:36px;font-weight:800;letter-spacing:-.5px}
+#ld-sub{font-size:14px;opacity:.7;margin-top:5px}
+#ld-sp{width:30px;height:30px;border:3px solid rgba(255,255,255,.3);
+  border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;margin-top:22px}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+
+<div id="ld">
+  <div id="ld-logo">SWAT4HCLS</div>
+  <div id="ld-sub">Amsterdam 2026</div>
+  <div id="ld-sp"></div>
+</div>
+
+<div id="app">
+
+<!-- Header -->
+<header id="hdr">
+  <div id="hdr-name">
+    <span id="hdr-sub">17th International Conference</span>
+    SWAT4HCLS 2026
+  </div>
+  <div id="hdr-right">Amsterdam<br>Mar 23–26</div>
+</header>
+
+<!-- Content -->
+<div id="scroll">
+
+  <!-- ════ HOME ════ -->
+  <section id="p-home" class="pane on">
+    <div class="hero">
+      <h1>SWAT4HCLS <span style="opacity:.6">2026</span></h1>
+      <div class="hero-ed">17th International Conference &mdash; Amsterdam</div>
+      <div class="hero-row">
+        <div class="hero-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          March 23&ndash;26, 2026
+        </div>
+        <div class="hero-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Amsterdam UMC, Netherlands
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="card">
+        <div class="lbl">Starts in</div>
+        <div class="cd-grid" id="cd-grid">
+          <div class="cd-cell"><div class="cd-num" id="cd-d">--</div><div class="cd-lbl">DAYS</div></div>
+          <div class="cd-cell"><div class="cd-num" id="cd-h">--</div><div class="cd-lbl">HRS</div></div>
+          <div class="cd-cell"><div class="cd-num" id="cd-m">--</div><div class="cd-lbl">MIN</div></div>
+          <div class="cd-cell"><div class="cd-num" id="cd-s">--</div><div class="cd-lbl">SEC</div></div>
+        </div>
+        <div id="cd-msg" style="text-align:center;font-weight:600;padding:6px 0;display:none;color:var(--g)"></div>
+      </div>
+
+      <div class="card" style="margin-top:10px">
+        <div class="lbl">Quick links</div>
+        <div class="link-row">
+          <a class="lnk" href="https://virtual.oxfordabstracts.com/event/76267/program" target="_blank">📋 Full programme</a>
+          <a class="lnk" href="https://www.swat4ls.org/workshops/amsterdam2026/" target="_blank">🌐 Website</a>
+          <a class="lnk" href="https://swat4hcls.slack.com" target="_blank">💬 Slack</a>
+          <a class="lnk" href="https://mas.to/tags/SWAT4HCLS" target="_blank">🐘 Mastodon</a>
+          <a class="lnk" href="https://bsky.app/search?q=%23SWAT4HCLS" target="_blank">🦋 Bluesky</a>
+          <a class="lnk" href="https://www.youtube.com/@swat4hcls" target="_blank">▶ YouTube</a>
+          <a class="lnk" href="mailto:swat4hcls@gmail.com">✉️ Contact</a>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:10px">
+        <div class="lbl">Programme at a glance</div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;gap:10px;align-items:center">
+            <div style="width:40px;font-size:11px;font-weight:700;color:var(--g)">Mon 23</div>
+            <div style="flex:1;font-size:13px"><span class="pill pt-tutorial">Tutorials</span> — 6 parallel tracks</div>
+          </div>
+          <div style="display:flex;gap:10px;align-items:center">
+            <div style="width:40px;font-size:11px;font-weight:700;color:var(--p)">Tue 24</div>
+            <div style="flex:1;font-size:13px"><span class="pill pt-keynote">Keynotes</span> + Papers + Posters/Demos + Dinner</div>
+          </div>
+          <div style="display:flex;gap:10px;align-items:center">
+            <div style="width:40px;font-size:11px;font-weight:700;color:var(--p)">Wed 25</div>
+            <div style="flex:1;font-size:13px"><span class="pill pt-keynote">Keynotes</span> + Papers + Posters/Demos + Closing</div>
+          </div>
+          <div style="display:flex;gap:10px;align-items:center">
+            <div style="width:40px;font-size:11px;font-weight:700;color:#6a1b9a">Thu 26</div>
+            <div style="flex:1;font-size:13px"><span class="pill pt-hackathon">BioHackathon</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:10px">
+        <div class="lbl">Sponsors</div>
+        <div class="sp-row" id="sp-row"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ PROGRAMME ════ -->
+  <section id="p-prog" class="pane">
+    <div class="day-bar" id="day-bar"></div>
+    <div class="sess-list" id="sess-list"></div>
+  </section>
+
+  <!-- ════ TALKS ════ -->
+  <section id="p-talks" class="pane">
+    <div class="search-bar">
+      <input type="search" id="talk-search" placeholder="Search talks, authors, tags…" autocomplete="off" autocorrect="off">
+      <div class="filter-row" id="filter-row"></div>
+    </div>
+    <div class="talk-list" id="talk-list"></div>
+  </section>
+
+  <!-- ════ VENUE ════ -->
+  <section id="p-venue" class="pane">
+    <div class="wrap">
+      <div class="card">
+        <div class="lbl">Location</div>
+        <div class="map-wrap">
+          <iframe loading="lazy" allowfullscreen
+            src="https://www.openstreetmap.org/export/embed.html?bbox=4.948%2C52.295%2C4.968%2C52.305&layer=mapnik&marker=52.2996%2C4.9583"
+            title="Amsterdam UMC AMC"></iframe>
+        </div>
+        <div class="info-list" style="margin-top:14px">
+          <div class="ii"><div class="ii-ico">🏥</div><div class="ii-tx">
+            <div class="il">Amsterdam UMC — AMC location</div>
+            <div class="iv">Meibergdreef 9, 1105 AZ Amsterdam<br>
+              <a href="https://maps.google.com/?q=Amsterdam+UMC+AMC+Meibergdreef+9+Amsterdam" target="_blank">Google Maps</a> &middot;
+              <a href="https://www.openstreetmap.org/?mlat=52.2996&mlon=4.9583#map=16/52.2996/4.9583" target="_blank">OpenStreetMap</a>
+            </div>
+          </div></div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:10px">
+        <div class="lbl">Getting there</div>
+        <div class="info-list" id="transport-list"></div>
+      </div>
+
+      <div class="card" style="margin-top:10px">
+        <div class="lbl">Public transport tickets (2026)</div>
+        <p style="font-size:12px;color:var(--tx2);margin-bottom:12px;line-height:1.6">
+          <strong>Easiest:</strong> Tap your contactless bank card or phone on any GVB/NS reader (OVpay).
+          No ticket to buy — billed daily, GVB capped at €10.50/day.
+        </p>
+        <table class="t-table">
+          <thead><tr><th>Ticket</th><th>Network</th><th>Price</th></tr></thead>
+          <tbody id="ticket-tbody"></tbody>
+        </table>
+        <p style="font-size:11px;color:var(--tx2);margin-top:8px">Prices 2026. Verify at <a href="https://www.gvb.nl/en/prices" target="_blank">gvb.nl</a> or <a href="https://www.ns.nl/en" target="_blank">ns.nl</a></p>
+      </div>
+
+      <div class="card" style="margin-top:10px">
+        <div class="lbl">Nearby hotels</div>
+        <div id="hotels-list"></div>
+      </div>
+
+      <div class="card" style="margin-top:10px">
+        <div class="lbl">Useful links</div>
+        <div class="link-row">
+          <a class="lnk" href="https://9292.nl/en" target="_blank">🗺️ 9292 journey planner</a>
+          <a class="lnk" href="https://www.gvb.nl/en/prices" target="_blank">🎫 GVB fares</a>
+          <a class="lnk" href="https://www.ns.nl/en" target="_blank">🚆 NS trains</a>
+          <a class="lnk" href="https://www.iamsterdam.com/en/travel-stay/getting-around/public-transport/pay-for-public-transport" target="_blank">💳 How to pay</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ ME ════ -->
+  <section id="p-me" class="pane">
+    <div class="exp-bar">
+      <button class="btn btn-s btn-sm" onclick="App.exportNotes()">Export notes (MD)</button>
+      <button class="btn btn-s btn-sm" onclick="App.exportBookmarks()">Export bookmarks</button>
+    </div>
+
+    <!-- Profile card -->
+    <div class="wrap">
+      <div id="me-card-view" style="display:none">
+        <div class="card">
+          <div class="lbl">My conference card</div>
+          <div id="me-card"></div>
+          <div class="pf-btns">
+            <button class="btn btn-s btn-sm" onclick="App.editProfile()">Edit</button>
+            <button class="btn btn-s btn-sm" onclick="App.copyLink()">Copy link</button>
+            <button class="btn btn-s btn-sm" onclick="App.shareCard()">Share</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="me-card-form">
+        <div class="card">
+          <div class="lbl">Create your conference card</div>
+          <p style="font-size:13px;color:var(--tx2);margin-bottom:14px">
+            Share with fellow attendees. Your card stays on your device — nothing is sent to a server.
+          </p>
+          <div class="pf-form">
+            <div class="fg"><label>Full name *</label><input id="pf-name" type="text" placeholder="Your name"></div>
+            <div class="fg"><label>Affiliation</label><input id="pf-affil" type="text" placeholder="Institution / Organisation"></div>
+            <div class="fg"><label>Role</label><input id="pf-role" type="text" placeholder="e.g. PhD student, Researcher, Bioinformatician"></div>
+            <div class="fg">
+              <label>ORCID</label>
+              <input id="pf-orcid" type="text" placeholder="0000-0000-0000-0000">
+              <div class="hint">Your persistent researcher identifier</div>
+            </div>
+            <div class="fg"><label>Mastodon / Bluesky</label><input id="pf-social" type="text" placeholder="@you@instance.social"></div>
+            <div class="fg"><label>Research interests <span style="opacity:.6">(comma-separated)</span></label>
+              <input id="pf-tags" type="text" placeholder="FAIR data, knowledge graphs, LLMs"></div>
+            <div class="fg"><label>Website / GitHub / ORCID URL</label><input id="pf-url" type="url" placeholder="https://"></div>
+            <button class="btn btn-p" onclick="App.saveProfile()">Save my card</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Discuss CTA -->
+      <div style="background:linear-gradient(135deg,#24292f,#444d56);color:#fff;border-radius:var(--r);padding:16px;margin-top:10px">
+        <div style="font-size:15px;font-weight:700;margin-bottom:5px">👋 Introduce yourself</div>
+        <div style="font-size:13px;opacity:.8;line-height:1.5;margin-bottom:12px">
+          Post a brief intro on GitHub Discussions — your interests, what you're working on, who you'd like to meet.
+        </div>
+        <a class="btn" style="background:#fff;color:#24292f;display:inline-flex;padding:10px 18px;font-size:13px;font-weight:700;border-radius:8px;text-decoration:none"
+          href="https://github.com/SWAT4HCLS/SWAT4HCLS26_app/discussions" target="_blank">Open GitHub Discussions</a>
+      </div>
+
+      <!-- Saved contacts -->
+      <div class="card" style="margin-top:10px">
+        <div class="lbl">Saved contacts</div>
+        <div id="contacts-list"><p style="font-size:13px;color:var(--tx2)">No saved contacts yet. Open a colleague's shared card link to save them here.</p></div>
+      </div>
+
+      <!-- Bookmarks & notes -->
+      <div style="margin-top:10px">
+        <div class="lbl" style="padding:0 2px 6px">My bookmarked sessions</div>
+        <div class="bk-section" id="bk-section">
+          <div class="bk-empty">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+            Bookmark sessions in the Programme tab to track your schedule here.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /scroll -->
+
+<!-- Bottom Nav -->
+<nav id="nav">
+  <button class="nb on" data-t="home" onclick="App.go('home')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    <span>Home</span>
+  </button>
+  <button class="nb" data-t="prog" onclick="App.go('prog')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    <span>Programme</span>
+  </button>
+  <button class="nb" data-t="talks" onclick="App.go('talks')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+    <span>Talks</span>
+  </button>
+  <button class="nb" data-t="venue" onclick="App.go('venue')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    <span>Venue</span>
+  </button>
+  <button class="nb" data-t="me" onclick="App.go('me')" style="position:relative">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    <span>Me</span>
+    <div class="bdg" id="me-bdg"></div>
+  </button>
+</nav>
+
+</div><!-- /app -->
+<div id="toast"></div>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════
+   SWAT4HCLS 2026 — Conference App
+   Data: data/program.json  |  PWA: sw.js + manifest.json
+   ═══════════════════════════════════════════════════════════════ */
+const App = (() => {
+  let D = null; // program.json data
+  let cur = 'home', curDay = 0;
+  let BK = {}, NOTES = {}, PROFILE = null, CONTACTS = [];
+  let talkFilter = 'all', talkSearch = '';
+
+  /* ── Persist ──────────────────────────────────────────────── */
+  function loadStore() {
+    try { BK    = JSON.parse(localStorage.getItem('bk')   || '{}'); } catch(e){ BK={}; }
+    try { NOTES = JSON.parse(localStorage.getItem('no')   || '{}'); } catch(e){ NOTES={}; }
+    try { PROFILE= JSON.parse(localStorage.getItem('pf')  || 'null');} catch(e){ PROFILE=null; }
+    try { CONTACTS=JSON.parse(localStorage.getItem('ct')  || '[]'); } catch(e){ CONTACTS=[]; }
+  }
+  function saveBK()  { localStorage.setItem('bk', JSON.stringify(BK)); badge(); }
+  function saveNO()  { localStorage.setItem('no', JSON.stringify(NOTES)); }
+  function savePF()  { localStorage.setItem('pf', JSON.stringify(PROFILE)); }
+  function saveCT()  { localStorage.setItem('ct', JSON.stringify(CONTACTS)); }
+
+  /* ── Helpers ──────────────────────────────────────────────── */
+  const $ = s => document.querySelector(s);
+  const $$ = s => [...document.querySelectorAll(s)];
+  const esc = s => s ? String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;') : '';
+  function toast(msg, ms=2500) {
+    const t = $('#toast'); t.textContent=msg; t.classList.add('show');
+    setTimeout(()=>t.classList.remove('show'), ms);
+  }
+  function badge() {
+    const n = Object.keys(BK).length, b = $('#me-bdg');
+    if(n>0){ b.textContent=n; b.style.display='flex'; } else b.style.display='none';
+  }
+
+  /* ── Countdown ────────────────────────────────────────────── */
+  function tick() {
+    if(!D) return;
+    const start = new Date(D.start_date+'T00:00:00');
+    const end   = new Date(D.end_date  +'T23:59:59');
+    const now   = new Date();
+    const grid  = $('#cd-grid'), msg = $('#cd-msg');
+    if(now > end) {
+      grid.style.display='none'; msg.style.display='block';
+      msg.textContent='Conference has ended. See you next year!'; return;
+    }
+    if(now >= start) {
+      grid.style.display='none'; msg.style.display='block';
+      msg.textContent='🎉 Conference is happening NOW — Amsterdam UMC!'; return;
+    }
+    grid.style.display='grid'; msg.style.display='none';
+    const ms = start - now;
+    const d=Math.floor(ms/864e5), h=Math.floor(ms%864e5/36e5),
+          m=Math.floor(ms%36e5/6e4), s=Math.floor(ms%6e4/1e3);
+    $('#cd-d').textContent=d;
+    $('#cd-h').textContent=String(h).padStart(2,'0');
+    $('#cd-m').textContent=String(m).padStart(2,'0');
+    $('#cd-s').textContent=String(s).padStart(2,'0');
+  }
+
+  /* ── HOME ─────────────────────────────────────────────────── */
+  function renderHome() {
+    const sp = $('#sp-row');
+    sp.innerHTML = D.sponsors.map(s =>
+      `<a href="${esc(s.url)}" target="_blank" class="sp-chip sp-${s.tier.toLowerCase()}">${esc(s.name)} <small style="opacity:.6">${esc(s.tier)}</small></a>`
+    ).join('');
+  }
+
+  /* ── PROGRAMME ────────────────────────────────────────────── */
+  function renderDays() {
+    $('#day-bar').innerHTML = D.days.map((d,i) =>
+      `<button class="dc${i===curDay?' on':''}" onclick="App.day(${i})">
+        ${esc(d.label)}<small>${esc(d.theme)}</small>
+      </button>`).join('');
+  }
+  function renderSessions() {
+    const day = D.days[curDay];
+    if(!day){ $('#sess-list').innerHTML=''; return; }
+    $('#sess-list').innerHTML = day.sessions.map(s => sessHTML(s)).join('');
+    $$('.note-input').forEach(ta => {
+      ta.addEventListener('input', ()=>{ NOTES[ta.dataset.id]=ta.value; saveNO(); });
+    });
+  }
+  function sessHTML(s) {
+    const simple = ['break','logistics'].includes(s.type);
+    const bk = BK[s.id];
+    return `
+<div class="sess t-${s.type}${bk?' bk':''}" id="s-${s.id}">
+  <div class="sess-hd" onclick="App.toggle('${s.id}')">
+    <div class="sess-time">${esc(s.time)}</div>
+    <div class="sess-body">
+      <div class="sess-title">${esc(s.title)}</div>
+      ${s.speaker?`<div class="sess-speaker">${esc(s.speaker)}${s.affil?` <span style="opacity:.7">— ${esc(s.affil)}</span>`:''}  </div>`:''}
+      ${s.track ?`<div class="sess-speaker" style="color:var(--g)">${esc(s.track)}</div>`:''}
+      <div class="sess-meta">
+        <span class="pill pt-${s.type}">${s.type}</span>
+        ${s.room?`<span class="sess-room"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>${esc(s.room)}</span>`:''}
+      </div>
+    </div>
+    ${!simple?`
+    <div class="sess-actions" onclick="event.stopPropagation()">
+      <button class="ib bk-icon${bk?' on':''}" title="Bookmark" onclick="App.toggleBK('${s.id}')">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="${bk?'currentColor':'none'}" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+      </button>
+    </div>`:''}
+  </div>
+  ${!simple?`
+  <div class="sess-det" id="det-${s.id}">
+    ${s.abstract?`<div class="sess-abs">${esc(s.abstract)}</div>`:''}
+    ${s.slack?`<div class="sess-slack">💬 Slack: <strong>${esc(s.slack)}</strong></div>`:''}
+    <div class="note-area">
+      <label>My notes</label>
+      <textarea class="note-input" data-id="${s.id}" placeholder="Take notes here…">${esc(NOTES[s.id]||'')}</textarea>
+    </div>
+  </div>`:''}
+</div>`;
+  }
+  function toggle(sid) {
+    const d = $(`#det-${sid}`); if(d) d.classList.toggle('on');
+  }
+  function day(i) {
+    curDay=i; renderDays(); renderSessions(); $('#scroll').scrollTo(0,0);
+  }
+  function toggleBK(sid) {
+    if(BK[sid]) delete BK[sid]; else BK[sid]=true;
+    saveBK();
+    // update this session's icon in DOM
+    const el = $(`#s-${sid}`);
+    if(el){
+      el.classList.toggle('bk', !!BK[sid]);
+      const ic = el.querySelector('.bk-icon');
+      if(ic){ ic.classList.toggle('on',!!BK[sid]); ic.querySelector('svg').setAttribute('fill',BK[sid]?'currentColor':'none'); }
+    }
+    toast(BK[sid]?'Bookmarked!':'Removed');
+    renderMe();
+  }
+
+  /* ── TALKS ────────────────────────────────────────────────── */
+  function renderTalks() {
+    // filters
+    const types = ['all','long-paper','short-paper','demo'];
+    const labels = {'all':'All','long-paper':'Long papers','short-paper':'Short papers','demo':'Demonstrations'};
+    $('#filter-row').innerHTML = types.map(t =>
+      `<button class="fc${talkFilter===t?' on':''}" onclick="App.filter('${t}')">${labels[t]}</button>`
+    ).join('');
+    const q = talkSearch.toLowerCase().trim();
+    const list = D.talks.filter(t => {
+      if(talkFilter !== 'all' && t.type !== talkFilter) return false;
+      if(!q) return true;
+      return (t.title+t.authors+(t.tags||[]).join(' ')).toLowerCase().includes(q);
+    });
+    if(!list.length){
+      $('#talk-list').innerHTML='<div class="no-results">No talks match your search.</div>'; return;
+    }
+    $('#talk-list').innerHTML = list.map(t => {
+      const bk = BK[t.id];
+      const tags = (t.tags||[]).map(tg=>`<span class="tag">${esc(tg)}</span>`).join('');
+      return `
+<div class="talk-card" id="tk-${t.id}">
+  <div class="talk-type tt-${t.type}">${t.type.replace('-',' ')}</div>
+  <div class="talk-title">${esc(t.title)}</div>
+  <div class="talk-authors">${esc(t.authors)}</div>
+  ${tags?`<div style="margin-top:6px">${tags}</div>`:''}
+  <div class="talk-actions">
+    <button class="talk-bk${bk?' on':''}" onclick="App.toggleTalkBK('${t.id}')">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="${bk?'currentColor':'none'}" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+      ${bk?'Saved':'Save'}
+    </button>
+  </div>
+</div>`;
+    }).join('');
+  }
+  function filter(f){ talkFilter=f; renderTalks(); }
+  function toggleTalkBK(tid) {
+    if(BK[tid]) delete BK[tid]; else BK[tid]=true;
+    saveBK();
+    // update DOM
+    const el = $(`#tk-${tid}`);
+    if(el){
+      const btn = el.querySelector('.talk-bk');
+      btn.classList.toggle('on',!!BK[tid]);
+      btn.querySelector('svg').setAttribute('fill',BK[tid]?'currentColor':'none');
+      btn.innerHTML = btn.innerHTML.replace(/Save(d)?/, BK[tid]?'Saved':'Save');
+    }
+    toast(BK[tid]?'Saved!':'Removed');
+    renderMe();
+  }
+
+  /* ── VENUE ────────────────────────────────────────────────── */
+  function renderVenue() {
+    // Transport
+    $('#transport-list').innerHTML = D.transport.map(t => `
+<div class="ii"><div class="ii-ico">${t.icon}</div><div class="ii-tx">
+  <div class="il">${esc(t.label)}</div>
+  <div class="iv">${esc(t.detail)}</div>
+</div></div>`).join('');
+    // Tickets
+    $('#ticket-tbody').innerHTML = D.tickets.map(t => `
+<tr><td>${esc(t.name)}${t.note?`<div class="t-note">${esc(t.note)}</div>`:''}</td>
+<td style="white-space:nowrap;color:var(--tx2);font-size:12px">${esc(t.network)}</td>
+<td class="t-price">${esc(t.price)}</td></tr>`).join('');
+    // Hotels
+    $('#hotels-list').innerHTML = D.hotels.map(h => `
+<div class="hotel-row">
+  <div>
+    <div class="hn"><a href="${esc(h.url)}" target="_blank" style="color:var(--tx);text-decoration:none">${esc(h.name)}</a></div>
+    <div class="ha">${esc(h.address)}</div>
+  </div>
+  <div class="hdist">${esc(h.distance)}</div>
+</div>`).join('');
+  }
+
+  /* ── ME ───────────────────────────────────────────────────── */
+  function renderMe() {
+    renderProfile();
+    renderContacts();
+    renderBookmarks();
+  }
+  function renderProfile() {
+    if(PROFILE){
+      $('#me-card-form').style.display='none';
+      $('#me-card-view').style.display='block';
+      const tags = (PROFILE.tags||'').split(',').map(t=>t.trim()).filter(Boolean);
+      $('#me-card').innerHTML = `
+<div class="profile-card">
+  <div class="pc-name">${esc(PROFILE.name)}</div>
+  ${PROFILE.role?`<div class="pc-role">${esc(PROFILE.role)}</div>`:''}
+  ${PROFILE.affil?`<div class="pc-affil">${esc(PROFILE.affil)}</div>`:''}
+  <div class="pc-badges">
+    ${PROFILE.orcid?`<span class="pc-badge">ORCID: ${esc(PROFILE.orcid)}</span>`:''}
+    ${PROFILE.social?`<span class="pc-badge">${esc(PROFILE.social)}</span>`:''}
+    ${PROFILE.url?`<span class="pc-badge">🔗 ${esc(PROFILE.url.replace(/^https?:\/\//,''))}</span>`:''}
+  </div>
+  ${tags.length?`<div style="margin-top:10px">${tags.map(t=>`<span class="tag" style="background:rgba(255,255,255,.15);color:#fff">${esc(t)}</span>`).join('')}</div>`:''}
+  <div class="pc-link" id="pc-url">${buildLink()}</div>
+</div>`;
+    } else {
+      $('#me-card-form').style.display='block';
+      $('#me-card-view').style.display='none';
+    }
+  }
+  function saveProfile() {
+    const name = $('#pf-name').value.trim();
+    if(!name){ toast('Please enter your name'); return; }
+    PROFILE = {
+      name, affil: $('#pf-affil').value.trim(),
+      role:  $('#pf-role').value.trim(), orcid: $('#pf-orcid').value.trim(),
+      social:$('#pf-social').value.trim(), tags:  $('#pf-tags').value.trim(),
+      url:   $('#pf-url').value.trim()
+    };
+    savePF(); renderProfile(); toast('Profile saved!');
+  }
+  function editProfile() {
+    if(!PROFILE) return;
+    ['name','affil','role','orcid','social','tags','url'].forEach(k => {
+      const el=$(`#pf-${k}`); if(el) el.value=PROFILE[k]||'';
+    });
+    $('#me-card-form').style.display='block';
+    $('#me-card-view').style.display='none';
+  }
+  function buildLink() {
+    if(!PROFILE) return '';
+    const data = btoa(unescape(encodeURIComponent(JSON.stringify(PROFILE))));
+    return location.href.split('#')[0]+'#card/'+data;
+  }
+  function copyLink() {
+    const link=buildLink(); if(!link) return;
+    navigator.clipboard.writeText(link)
+      .then(()=>toast('Link copied!'))
+      .catch(()=>{ const ta=document.createElement('textarea');ta.value=link;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);toast('Link copied!'); });
+  }
+  function shareCard() {
+    const link=buildLink(); if(!link) return;
+    if(navigator.share) navigator.share({title:'My SWAT4HCLS 2026 card',url:link});
+    else copyLink();
+  }
+
+  function renderContacts() {
+    const cl = $('#contacts-list');
+    if(!CONTACTS.length){ cl.innerHTML='<p style="font-size:13px;color:var(--tx2)">No saved contacts yet.</p>'; return; }
+    cl.innerHTML = CONTACTS.map((c,i)=>`
+<div style="display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid var(--brd)">
+  <div style="width:40px;height:40px;border-radius:50%;background:var(--p);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;flex-shrink:0">${(c.name||'?')[0].toUpperCase()}</div>
+  <div style="flex:1">
+    <div style="font-size:14px;font-weight:600">${esc(c.name)}</div>
+    <div style="font-size:12px;color:var(--tx2)">${esc(c.role||'')}${c.affil?' · '+esc(c.affil):''}</div>
+    ${c.orcid?`<a href="https://orcid.org/${esc(c.orcid)}" target="_blank" style="font-size:12px;color:var(--p)">ORCID ↗</a> `:''}
+    ${c.social?`<span style="font-size:12px;color:var(--tx2)">${esc(c.social)}</span>`:''}
+    ${(c.tags||'').split(',').filter(Boolean).map(t=>`<span class="tag" style="font-size:10px">${esc(t.trim())}</span>`).join('')}
+  </div>
+  <button style="border:none;background:none;cursor:pointer;color:var(--tx2);font-size:18px;padding:4px" onclick="App.rmContact(${i})">×</button>
+</div>`).join('');
+  }
+  function rmContact(i){ CONTACTS.splice(i,1); saveCT(); renderContacts(); toast('Removed'); }
+
+  function renderBookmarks() {
+    const all=[];
+    D.days.forEach(d=>d.sessions.forEach(s=>{ if(BK[s.id]) all.push({s,d}); }));
+    D.talks.forEach(t=>{ if(BK[t.id]) all.push({t}); });
+    const sec = $('#bk-section');
+    if(!all.length){
+      sec.innerHTML=`<div class="bk-empty">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        Bookmark sessions in the Programme tab, or save talks from the Talks tab.
+      </div>`; return;
+    }
+    sec.innerHTML = all.map(({s,d,t})=>{
+      if(s) return `
+<div class="card">
+  <div class="bk-day">${esc(d.label)} · ${esc(s.time)}</div>
+  <div class="bk-title">${esc(s.title)}</div>
+  ${s.speaker?`<div class="bk-speaker">${esc(s.speaker)}</div>`:''}
+  ${s.room?`<div style="font-size:12px;color:var(--tx2);margin-top:2px">📍 ${esc(s.room)}</div>`:''}
+  <div class="note-area">
+    <label>Notes</label>
+    <textarea class="note-input" data-id="${s.id}" placeholder="Your notes…" oninput="App.note('${s.id}',this.value)">${esc(NOTES[s.id]||'')}</textarea>
+  </div>
+  <button class="btn btn-s btn-sm" style="margin-top:8px" onclick="App.toggleBK('${s.id}')">Remove bookmark</button>
+</div>`;
+      if(t) return `
+<div class="card">
+  <div class="talk-type tt-${t.type}" style="margin-bottom:6px">${t.type.replace('-',' ')}</div>
+  <div class="bk-title">${esc(t.title)}</div>
+  <div class="bk-speaker">${esc(t.authors)}</div>
+  <div class="note-area">
+    <label>Notes</label>
+    <textarea class="note-input" data-id="${t.id}" placeholder="Your notes…" oninput="App.note('${t.id}',this.value)">${esc(NOTES[t.id]||'')}</textarea>
+  </div>
+  <button class="btn btn-s btn-sm" style="margin-top:8px" onclick="App.toggleTalkBK('${t.id}')">Remove</button>
+</div>`;
+    }).join('');
+  }
+  function note(id,val){ NOTES[id]=val; saveNO(); }
+
+  /* ── Export ───────────────────────────────────────────────── */
+  function exportNotes() {
+    let md=`# My SWAT4HCLS 2026 Notes\nExported: ${new Date().toISOString().split('T')[0]}\n\n`;
+    D.days.forEach(d=>d.sessions.forEach(s=>{ if(BK[s.id]||NOTES[s.id]){
+      md+=`## ${s.title}\n**${d.label} · ${s.time}**${s.speaker?' — '+s.speaker:''}\n`;
+      if(NOTES[s.id]) md+=`\n${NOTES[s.id]}\n`;
+      md+='\n---\n\n'; }}));
+    D.talks.forEach(t=>{ if(BK[t.id]||NOTES[t.id]){
+      md+=`## ${t.title}\n*${t.authors}*\n`;
+      if(NOTES[t.id]) md+=`\n${NOTES[t.id]}\n`;
+      md+='\n---\n\n'; }});
+    dl(md,'swat4hcls2026_notes.md','text/markdown');
+  }
+  function exportBookmarks() {
+    let md=`# My SWAT4HCLS 2026 Bookmarks\nExported: ${new Date().toISOString().split('T')[0]}\n\n`;
+    D.days.forEach(d=>d.sessions.forEach(s=>{ if(BK[s.id]) md+=`- **${d.label} ${s.time}** — ${s.title}${s.speaker?' ('+s.speaker+')':''}\n`; }));
+    D.talks.forEach(t=>{ if(BK[t.id]) md+=`- [${t.type.replace('-',' ')}] **${t.title}** — ${t.authors}\n`; });
+    dl(md,'swat4hcls2026_bookmarks.md','text/markdown');
+  }
+  function dl(content,name,type) {
+    const a=document.createElement('a');
+    a.href='data:'+type+';charset=utf-8,'+encodeURIComponent(content);
+    a.download=name; a.click();
+  }
+
+  /* ── Nav ──────────────────────────────────────────────────── */
+  function go(tab) {
+    cur=tab;
+    $$('.pane').forEach(p=>p.classList.toggle('on', p.id==='p-'+tab));
+    $$('.nb').forEach(b=>b.classList.toggle('on', b.dataset.t===tab));
+    if(tab==='prog'){ renderDays(); renderSessions(); }
+    if(tab==='talks') renderTalks();
+    if(tab==='venue') renderVenue();
+    if(tab==='me')    renderMe();
+    $('#scroll').scrollTo(0,0);
+  }
+
+  /* ── Deep link: shared profile card ─────────────────────── */
+  function handleDeepLink() {
+    const h=location.hash;
+    if(!h.startsWith('#card/')) return false;
+    try {
+      const p=JSON.parse(decodeURIComponent(escape(atob(h.slice(6)))));
+      if(!p.name) return false;
+      const tags=(p.tags||'').split(',').map(t=>t.trim()).filter(Boolean);
+      const already=CONTACTS.some(c=>c.name===p.name&&c.orcid===p.orcid);
+      document.body.innerHTML=`
+<div style="min-height:100dvh;background:var(--pd);display:flex;align-items:center;justify-content:center;padding:24px">
+  <div style="max-width:400px;width:100%">
+    <div style="text-align:center;color:rgba(255,255,255,.7);font-size:13px;margin-bottom:16px">SWAT4HCLS 2026 — Conference Card</div>
+    <div class="profile-card">
+      <div class="pc-name">${esc(p.name)}</div>
+      ${p.role?`<div class="pc-role">${esc(p.role)}</div>`:''}
+      ${p.affil?`<div class="pc-affil">${esc(p.affil)}</div>`:''}
+      <div class="pc-badges">
+        ${p.orcid?`<a href="https://orcid.org/${esc(p.orcid)}" target="_blank" class="pc-badge" style="color:#fff">ORCID ↗</a>`:''}
+        ${p.social?`<span class="pc-badge">${esc(p.social)}</span>`:''}
+        ${p.url?`<a href="${esc(p.url)}" target="_blank" class="pc-badge" style="color:#fff">🔗 Website ↗</a>`:''}
+      </div>
+      ${tags.length?`<div style="margin-top:10px">${tags.map(t=>`<span class="tag" style="background:rgba(255,255,255,.15);color:#fff">${esc(t)}</span>`).join('')}</div>`:''}
+    </div>
+    ${already
+      ?'<p style="color:rgba(255,255,255,.6);text-align:center;margin-top:12px;font-size:13px">Already saved</p>'
+      :`<button onclick="App.saveContact(${JSON.stringify(JSON.stringify(p))})"
+          style="width:100%;margin-top:12px;padding:12px;background:#fff;color:var(--pd);border:none;border-radius:var(--rs);font-size:14px;font-weight:700;cursor:pointer;border-radius:8px">
+          Save to my contacts
+        </button>`}
+    <div style="text-align:center;margin-top:14px">
+      <a href="./" style="color:rgba(255,255,255,.65);font-size:13px">← Back to app</a>
+    </div>
+  </div>
+</div>`;
+      $('#ld').classList.add('out');
+      return true;
+    } catch(e){ return false; }
+  }
+  function saveContact(jsonStr) {
+    const p=JSON.parse(jsonStr);
+    CONTACTS.push(p); saveCT();
+    toast('Contact saved!');
+    setTimeout(()=>{ location.hash=''; location.reload(); }, 900);
+  }
+
+  /* ── Init ─────────────────────────────────────────────────── */
+  async function init() {
+    loadStore();
+    if(handleDeepLink()) return;
+    try {
+      D = await fetch('data/program.json?v='+Date.now()).then(r=>r.json());
+    } catch(e) {
+      $('#ld').innerHTML='<div style="color:#fff;padding:24px;text-align:center"><p style="font-size:18px">⚠️</p><p style="margin-top:8px">Could not load conference data.<br><small style="opacity:.7">Ensure data/program.json is present.</small></p></div>';
+      return;
+    }
+    // Today's day auto-select
+    const today=new Date().toISOString().split('T')[0];
+    const idx=D.days.findIndex(d=>d.date===today);
+    if(idx>=0) curDay=idx;
+
+    renderHome();
+    tick();
+    setInterval(tick,1000);
+    badge();
+    // Search input
+    $('#talk-search').addEventListener('input', e=>{ talkSearch=e.target.value; renderTalks(); });
+    $('#ld').classList.add('out');
+  }
+
+  return {
+    init, go, day, toggle, toggleBK, toggleTalkBK, filter,
+    saveProfile, editProfile, copyLink, shareCard,
+    rmContact, saveContact, note, exportNotes, exportBookmarks
+  };
+})();
+
+if('serviceWorker' in navigator)
+  navigator.serviceWorker.register('sw.js').catch(()=>{});
+
+document.addEventListener('DOMContentLoaded', App.init);
+</script>
+</body>
+</html>

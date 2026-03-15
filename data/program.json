@@ -1,0 +1,586 @@
+{
+  "conference": "SWAT4HCLS 2026",
+  "edition": "17th International Conference",
+  "subtitle": "Semantic Web Applications and Tools for Health Care and Life Sciences",
+  "hashtag": "#SWAT4HCLS",
+  "slack": "https://swat4hcls.slack.com",
+  "mastodon": "https://mas.to/tags/SWAT4HCLS",
+  "bluesky": "https://bsky.app/search?q=%23SWAT4HCLS",
+  "youtube": "https://www.youtube.com/@swat4hcls",
+  "website": "https://www.swat4ls.org/workshops/amsterdam2026/",
+  "programme_url": "https://virtual.oxfordabstracts.com/event/76267/program",
+  "github_discussions": "https://github.com/SWAT4HCLS/SWAT4HCLS26_app/discussions",
+  "email": "swat4hcls@gmail.com",
+  "dates": "March 23\u201326, 2026",
+  "start_date": "2026-03-23",
+  "end_date": "2026-03-26",
+  "location": "Amsterdam UMC \u2014 AMC location",
+  "address": "Meibergdreef 9, 1105 AZ Amsterdam, Netherlands",
+
+  "committee": [
+    { "role": "LOC Chair & Hackathon Chair", "name": "Andra Waagmeester", "affil": "Amsterdam UMC" },
+    { "role": "LOC Member", "name": "Katy Wolstencroft", "affil": "Amsterdam UMC" },
+    { "role": "Administration", "name": "Dana Cernoskova", "affil": "Scientifika" },
+    { "role": "Scientific Chair", "name": "Sabine \u00d6sterle", "affil": "Swiss Institute of Bioinformatics" },
+    { "role": "Tutorials Chair", "name": "Leyla Jael Garc\u00eda Castro", "affil": "ZB MED, Germany" },
+    { "role": "OC Member", "name": "Jerven Bolleman", "affil": "Swiss Institute of Bioinformatics" },
+    { "role": "OC Member", "name": "M. Scott Marshall", "affil": "Triply, Netherlands" },
+    { "role": "OC Member", "name": "Andrea Splendiani", "affil": "IQVIA, Switzerland" }
+  ],
+
+  "days": [
+    {
+      "id": "day1",
+      "date": "2026-03-23",
+      "label": "Mon 23",
+      "theme": "Tutorials",
+      "color": "#2e7d32",
+      "sessions": [
+        {
+          "id": "d1_reg",
+          "time": "08:30", "end": "09:00",
+          "type": "logistics",
+          "title": "Registration & Welcome Coffee",
+          "room": "Main Entrance"
+        },
+        {
+          "id": "t_am_a",
+          "time": "09:00", "end": "13:00",
+          "type": "tutorial",
+          "title": "Clinical Data Modeling with SULO",
+          "track": "Track A",
+          "room": "Room A",
+          "slack": "#swat4hcls2026_t1",
+          "abstract": "Hands-on introduction to clinical data modeling using the Semantic Unified Language for Ontologies (SULO). Participants will learn to represent clinical knowledge using formal ontological patterns.",
+          "tags": ["clinical-data", "modeling", "ontology"]
+        },
+        {
+          "id": "t_am_b",
+          "time": "09:00", "end": "13:00",
+          "type": "tutorial",
+          "title": "Making GraphRAG work for Healthcare and Life Sciences: Ensuring Knowledge Graph Quality for Grounded LLMs",
+          "track": "Track B",
+          "room": "Room B",
+          "slack": "#swat4hcls2026_t2",
+          "abstract": "Practical workshop on Retrieval-Augmented Generation (RAG) using knowledge graphs in healthcare and life sciences. Focus on knowledge graph quality criteria that ensure reliable LLM grounding.",
+          "tags": ["LLM", "GraphRAG", "knowledge-graph", "AI"]
+        },
+        {
+          "id": "t_am_c",
+          "time": "09:00", "end": "13:00",
+          "type": "tutorial",
+          "title": "Building Virtual Knowledge Graphs for Life Sciences with Ontop-VKG",
+          "track": "Track C",
+          "room": "Room C",
+          "slack": "#swat4hcls2026_t3",
+          "abstract": "Learn to construct and query virtual knowledge graphs over relational and other data sources in life sciences using Ontop, without physically transforming the data.",
+          "tags": ["Ontop", "VKG", "SPARQL", "life-sciences"]
+        },
+        {
+          "id": "d1_coffee1",
+          "time": "10:30", "end": "11:00",
+          "type": "break",
+          "title": "Coffee Break",
+          "room": "Foyer"
+        },
+        {
+          "id": "d1_lunch",
+          "time": "13:00", "end": "14:00",
+          "type": "break",
+          "title": "Lunch",
+          "room": "Canteen"
+        },
+        {
+          "id": "t_pm_a",
+          "time": "14:00", "end": "17:30",
+          "type": "tutorial",
+          "title": "Harmonising Provenance Information for Biomedical Data: the MIRAPIE Approach Applied to Health Research Data in EHDS Context",
+          "track": "Track A",
+          "room": "Room A",
+          "slack": "#swat4hcls2026_t4",
+          "abstract": "Practical session on provenance harmonization for biomedical datasets using the MIRAPIE framework, applied to the European Health Data Space (EHDS) context.",
+          "tags": ["provenance", "EHDS", "FAIR", "MIRAPIE"]
+        },
+        {
+          "id": "t_pm_b",
+          "time": "14:00", "end": "17:30",
+          "type": "tutorial",
+          "title": "Declarative Data Standardization to OMOP-CDM using LinkML",
+          "track": "Track B",
+          "room": "Room B",
+          "slack": "#swat4hcls2026_t5",
+          "abstract": "Learn to map heterogeneous health datasets to the OMOP Common Data Model using declarative LinkML schemas, reducing manual transformation effort.",
+          "tags": ["OMOP", "LinkML", "CDM", "standardization"]
+        },
+        {
+          "id": "t_pm_c",
+          "time": "14:00", "end": "17:30",
+          "type": "tutorial",
+          "title": "Learning SPARQL By Example",
+          "track": "Track C",
+          "room": "Room C",
+          "slack": "#swat4hcls2026_t6",
+          "abstract": "Beginner-friendly introduction to SPARQL for querying RDF knowledge graphs in the life sciences and healthcare, with hands-on examples on real biomedical datasets.",
+          "tags": ["SPARQL", "RDF", "beginner", "linked-data"]
+        },
+        {
+          "id": "d1_coffee2",
+          "time": "15:30", "end": "16:00",
+          "type": "break",
+          "title": "Coffee Break",
+          "room": "Foyer"
+        }
+      ]
+    },
+    {
+      "id": "day2",
+      "date": "2026-03-24",
+      "label": "Tue 24",
+      "theme": "Conference Day 1",
+      "color": "#1a6b8a",
+      "sessions": [
+        {
+          "id": "d2_open",
+          "time": "09:00", "end": "09:30",
+          "type": "plenary",
+          "title": "Opening \u2014 Welcome to SWAT4HCLS 2026",
+          "speaker": "Organising Committee",
+          "room": "Auditorium"
+        },
+        {
+          "id": "d2_k1",
+          "time": "09:30", "end": "10:30",
+          "type": "keynote",
+          "title": "Looking in and through the looking-glass",
+          "speaker": "Prof. Ronald Cornet",
+          "affil": "Amsterdam UMC & University of Amsterdam",
+          "room": "Auditorium",
+          "abstract": "Reflecting on 25 years of researching semantics and ontologies in healthcare data, this talk addresses technical, social, and governance aspects while examining progress, challenges, and future directions in semantic interoperability for reusable health data.",
+          "tags": ["semantics", "ontology", "healthcare", "retrospective"]
+        },
+        {
+          "id": "d2_coffee1",
+          "time": "10:30", "end": "11:00",
+          "type": "break",
+          "title": "Coffee Break & Poster/Demo preview",
+          "room": "Foyer"
+        },
+        {
+          "id": "d2_papers1",
+          "time": "11:00", "end": "12:30",
+          "type": "papers",
+          "title": "Paper Session 1",
+          "room": "Auditorium",
+          "chair": "TBA",
+          "tags": []
+        },
+        {
+          "id": "d2_lunch",
+          "time": "12:30", "end": "13:30",
+          "type": "break",
+          "title": "Lunch",
+          "room": "Canteen"
+        },
+        {
+          "id": "d2_k2",
+          "time": "13:30", "end": "14:30",
+          "type": "keynote",
+          "title": "Scaling up data driven research can leverage the EHDS but needs better quality",
+          "speaker": "Prof. Dipak Kalra",
+          "affil": "European Institute for Innovation through Health Data (i\u223cHD)",
+          "room": "Auditorium",
+          "abstract": "Examines how the European Health Data Space accelerates real-world data availability while highlighting critical success factors including provenance, quality, and public trust.",
+          "tags": ["EHDS", "data-quality", "provenance", "RWD"]
+        },
+        {
+          "id": "d2_papers2",
+          "time": "14:30", "end": "16:00",
+          "type": "papers",
+          "title": "Paper Session 2",
+          "room": "Auditorium",
+          "chair": "TBA",
+          "tags": []
+        },
+        {
+          "id": "d2_demo",
+          "time": "16:00", "end": "17:30",
+          "type": "demo",
+          "title": "Poster & Demo Session",
+          "room": "Foyer",
+          "abstract": "Presentations of all accepted posters and demonstrations. Coffee served.",
+          "tags": ["poster", "demo", "networking"]
+        },
+        {
+          "id": "d2_dinner",
+          "time": "19:00", "end": "22:00",
+          "type": "social",
+          "title": "Conference Dinner",
+          "room": "Venue TBA \u2014 Amsterdam city centre",
+          "abstract": "Social dinner included with registration. Details will be announced closer to the event. A great opportunity to connect with fellow attendees.",
+          "tags": ["social", "dinner", "networking"]
+        }
+      ]
+    },
+    {
+      "id": "day3",
+      "date": "2026-03-25",
+      "label": "Wed 25",
+      "theme": "Conference Day 2",
+      "color": "#1a6b8a",
+      "sessions": [
+        {
+          "id": "d3_k3",
+          "time": "09:00", "end": "10:00",
+          "type": "keynote",
+          "title": "Knowledge alignment for LLMs: A strategy for reproducibility?",
+          "speaker": "Prof. Janna Hastings",
+          "affil": "Idiap Research Institute, Martigny, Switzerland",
+          "room": "Auditorium",
+          "abstract": "Discusses combining large language models with formal ontologies and logical constraints to improve reliability and ensure reproducibility, with examples from chemistry and behavioural science.",
+          "tags": ["LLM", "ontology", "reproducibility", "AI"]
+        },
+        {
+          "id": "d3_coffee1",
+          "time": "10:00", "end": "10:30",
+          "type": "break",
+          "title": "Coffee Break",
+          "room": "Foyer"
+        },
+        {
+          "id": "d3_k4",
+          "time": "10:30", "end": "11:30",
+          "type": "keynote",
+          "title": "Keynote \u2014 Prof. Hannah Bast",
+          "speaker": "Prof. Hannah Bast",
+          "affil": "University of Freiburg, Germany",
+          "room": "Auditorium",
+          "abstract": "Title to be announced. Prof. Bast specialises in algorithms, information retrieval, and high-performance systems for knowledge graph search and querying.",
+          "tags": ["knowledge-graph", "information-retrieval", "algorithms"]
+        },
+        {
+          "id": "d3_papers3",
+          "time": "11:30", "end": "13:00",
+          "type": "papers",
+          "title": "Paper Session 3",
+          "room": "Auditorium",
+          "chair": "TBA",
+          "tags": []
+        },
+        {
+          "id": "d3_lunch",
+          "time": "13:00", "end": "14:00",
+          "type": "break",
+          "title": "Lunch",
+          "room": "Canteen"
+        },
+        {
+          "id": "d3_papers4",
+          "time": "14:00", "end": "15:30",
+          "type": "papers",
+          "title": "Paper Session 4",
+          "room": "Auditorium",
+          "chair": "TBA",
+          "tags": []
+        },
+        {
+          "id": "d3_demo2",
+          "time": "15:30", "end": "16:30",
+          "type": "demo",
+          "title": "Poster & Demo Session",
+          "room": "Foyer",
+          "abstract": "Second poster and demo session. Coffee served.",
+          "tags": ["poster", "demo"]
+        },
+        {
+          "id": "d3_awards",
+          "time": "16:30", "end": "17:00",
+          "type": "plenary",
+          "title": "Awards & Closing Remarks",
+          "speaker": "Organising & Scientific Committee",
+          "room": "Auditorium",
+          "tags": ["awards", "closing", "biohackathon-preview"]
+        }
+      ]
+    },
+    {
+      "id": "day4",
+      "date": "2026-03-26",
+      "label": "Thu 26",
+      "theme": "BioHackathon",
+      "color": "#6a1b9a",
+      "sessions": [
+        {
+          "id": "d4_walkin",
+          "time": "09:00", "end": "10:00",
+          "type": "logistics",
+          "title": "Walk-in & Setup",
+          "room": "Hackathon Room"
+        },
+        {
+          "id": "d4_pitches",
+          "time": "10:00", "end": "11:00",
+          "type": "plenary",
+          "title": "Project Pitches & Team Formation",
+          "room": "Hackathon Room",
+          "abstract": "Each project lead presents their pitch (5 min). After all pitches, teams self-organise and hacking begins.",
+          "tags": ["biohackathon", "pitches"]
+        },
+        {
+          "id": "d4_hack1",
+          "time": "11:00", "end": "12:30",
+          "type": "hackathon",
+          "title": "Hacking Session I",
+          "room": "Hackathon Room",
+          "tags": ["biohackathon"]
+        },
+        {
+          "id": "d4_lunch",
+          "time": "12:30", "end": "13:30",
+          "type": "break",
+          "title": "Lunch",
+          "room": "Canteen"
+        },
+        {
+          "id": "d4_hack2",
+          "time": "13:30", "end": "15:00",
+          "type": "hackathon",
+          "title": "Hacking Session II",
+          "room": "Hackathon Room",
+          "tags": ["biohackathon"]
+        },
+        {
+          "id": "d4_results",
+          "time": "15:00", "end": "16:00",
+          "type": "plenary",
+          "title": "Results Presentations & Wrap-up",
+          "room": "Hackathon Room",
+          "abstract": "Each team presents their hackathon outcomes, code, and next steps.",
+          "tags": ["biohackathon", "results"]
+        }
+      ]
+    }
+  ],
+
+  "talks": [
+    {
+      "id": "demo_1", "type": "demo",
+      "title": "Scholia 2026: Compliance with SPARQL 1.1",
+      "authors": "Egon Willighagen, Daniel Mietchen, Peter Patel-Schneider, Konrad Linden, Lars Willighagen, Wolfgang Fahl",
+      "abstract": "",
+      "tags": ["Wikidata", "SPARQL", "Scholia"]
+    },
+    {
+      "id": "demo_2", "type": "demo",
+      "title": "SemSynth: Semantic Metadata and Synthetic Surrogates for Governed Discovery of Clinical Tables",
+      "authors": "Benno Kruit",
+      "abstract": "",
+      "tags": ["clinical-data", "metadata", "privacy"]
+    },
+    {
+      "id": "demo_3", "type": "demo",
+      "title": "LLM-based agents for term reconciliation",
+      "authors": "Iurii Savvateev, Taras G\u00fcnther, Martin Wainaina, Matthias Filter",
+      "abstract": "",
+      "tags": ["LLM", "ontology", "NLP"]
+    },
+    {
+      "id": "demo_4", "type": "demo",
+      "title": "Flyover: A Practical, Privacy-Aware Tool for Clinical Data FAIR-ification and Semantic Harmonization",
+      "authors": "Varsha Gouthamchand, Joshi Hogenboom, Tim Hendriks, Andre Dekker, Leonard Wee, Johan van Soest",
+      "abstract": "",
+      "tags": ["FAIR", "clinical-data", "privacy", "harmonization"]
+    },
+    {
+      "id": "demo_5", "type": "demo",
+      "title": "Machine-Actionable Access Policies using ODRL",
+      "authors": "Jens van der Wateren, Rick Overkleeft, Sander van Boom",
+      "abstract": "",
+      "tags": ["ODRL", "access-policy", "FAIR"]
+    },
+    {
+      "id": "demo_6", "type": "demo",
+      "title": "Proposal2VR: Turning a Consortium Funding Proposal into an Ontology-Grounded RDF Graph for Immersive Exploration in Virtual Reality",
+      "authors": "Alexander Kellmann, Kirubel Biruk Shiferaw, Daniele Liprandi, Dagmar Waltemath, Ron Henkel",
+      "abstract": "",
+      "tags": ["VR", "RDF", "ontology", "visualization"]
+    },
+    {
+      "id": "demo_7", "type": "demo",
+      "title": "RDFlow: monitoring data interoperability and ontology evolution for rare diseases",
+      "authors": "Pauline Lubet, Jose-Emilio Labra-Gayo, N\u00faria Queralt-Rosinach, Andra Waagmeester, Daniel Fern\u00e1ndez-\u00c1lvarez, Yasunori Yamamoto, Xi Yang",
+      "abstract": "",
+      "tags": ["rare-disease", "interoperability", "ShEx", "ontology"]
+    },
+    {
+      "id": "demo_8", "type": "demo",
+      "title": "KIK-V health indicator data exchange: Linked Data from the ground up",
+      "authors": "M. Scott Marshall",
+      "abstract": "",
+      "tags": ["linked-data", "health-indicators", "KIK-V"]
+    },
+    {
+      "id": "short_1", "type": "short-paper",
+      "title": "Sequential Domain Adaptation on Heterogeneous Clinical Resources for Biomedical NER",
+      "authors": "Jasvinder Singh, Itisha Yadav",
+      "abstract": "",
+      "tags": ["NER", "NLP", "clinical-NLP", "transfer-learning"]
+    },
+    {
+      "id": "short_2", "type": "short-paper",
+      "title": "Semantic Mapping of TREAT-NMD Core Datasets to the CARE-SM",
+      "authors": "Lilli Schuckert, Pablo Alarc\u00f3n-Moreno, Daphne Wijnbergen, Sander van Boom, Bouchra Ezzamouri, Marco Roos, Ronald Cornet, Martijn G. Kersloot",
+      "abstract": "",
+      "tags": ["rare-disease", "CARE-SM", "TREAT-NMD", "semantic-mapping"]
+    },
+    {
+      "id": "short_3", "type": "short-paper",
+      "title": "FDPcrawleR: A Lightweight R Framework for Auditing FAIR Data Points and FAIR Virtual Platforms",
+      "authors": "Kristina Vodorezova, Alberto C\u00e1mara, Nirupama Benis, Andra Waagmeester, Mark D. Wilkinson, Ronald Cornet",
+      "abstract": "",
+      "tags": ["FAIR", "FAIR-Data-Points", "R", "audit"]
+    },
+    {
+      "id": "short_4", "type": "short-paper",
+      "title": "Ontological modeling of dynamic biodiversity consensus",
+      "authors": "Robert Hoehndorf, Andra Waagmeester",
+      "abstract": "",
+      "tags": ["ontology", "biodiversity", "consensus"]
+    },
+    {
+      "id": "long_1", "type": "long-paper",
+      "title": "Automated Quality Metrics Assessment in Real World Data for Rare Diseases Registries EU Regulatory Compliance \u2013 AutoQ-RWD",
+      "authors": "Sergi Agui\u00f3-Castillo, Bruna dos Santos Vieira, In\u00eas de Oliveira Coelho Henriques, Peter A. C. \u2019t Hoen",
+      "abstract": "",
+      "tags": ["rare-disease", "RWD", "data-quality", "EU-compliance"]
+    },
+    {
+      "id": "long_2", "type": "long-paper",
+      "title": "STELA: Unifying SNOMED CT Logical Expressions and Textual Descriptions for Holistic Concept Representation",
+      "authors": "Yuanyuan Zheng, Adel Bensahla, Julien Ehrsam, Jamil Zaghir, Christian Lovis, Christophe Gaudet-Blavignac, Mina Bjelogrlic",
+      "abstract": "",
+      "tags": ["SNOMED-CT", "ontology", "NLP", "clinical-terminology"]
+    },
+    {
+      "id": "long_3", "type": "long-paper",
+      "title": "Embedding-based Deduplication of Knowledge Graphs using Graph Neural Networks",
+      "authors": "Emma Pinckers, Yulia Shapovalova, Shervin Mehryar, Michel Dumontier",
+      "abstract": "",
+      "tags": ["knowledge-graph", "GNN", "deduplication", "embeddings"]
+    },
+    {
+      "id": "long_4", "type": "long-paper",
+      "title": "Semantic Interoperability at National Scale: The SPHN Federated Clinical Routine Dataset",
+      "authors": "Jan Armida, Vasundra Tour\u00e9, Philip Krauss, Deepak Unni, Harald Witte, Davide Chiarugi, and co-authors",
+      "abstract": "",
+      "tags": ["SPHN", "federated-data", "semantic-interoperability", "Switzerland"]
+    },
+    {
+      "id": "long_5", "type": "long-paper",
+      "title": "A Standards-Based Knowledge Graph that Bridges Scientific Workflows, Run-Time Provenance, and Tool Registries",
+      "authors": "Marie Schmit, Ulysse Le Clanche, George Marchment, Sarah Cohen-Boulakia, Olivier Dameron, Alban Gaignard, Fr\u00e9d\u00e9ric Lemoine, Herv\u00e9 M\u00e9nager",
+      "abstract": "",
+      "tags": ["provenance", "scientific-workflow", "knowledge-graph", "RO-Crate"]
+    }
+  ],
+
+  "biohackathon": {
+    "note": "Parallel hacking room available March 23\u201325. Main event March 26.",
+    "projects": [
+      {
+        "id": "bh1",
+        "title": "From DCAT to HealthDCAT-AP",
+        "short": "Metadata Catalog Harmonisation",
+        "format": "Short Spark",
+        "leads": "Vasundra Tour\u00e9 et al. (SIB, LUMC)",
+        "description": "Comparative analysis of healthcare metadata catalogue schemas across Europe. Participants will analyse similarities and differences among national DCAT-AP and HealthDCAT-AP implementations to create harmonisation recommendations.",
+        "tags": ["DCAT", "HealthDCAT-AP", "metadata", "interoperability"]
+      },
+      {
+        "id": "bh2",
+        "title": "OpenMRS as a Living Lab",
+        "short": "EHRs & Semantic Web",
+        "format": "Long-Term Project",
+        "leads": "Claude Nanjo, Stephanie Medlock, Ronald Cornet, Andra Waagmeester (Amsterdam UMC)",
+        "description": "Uses open-source OpenMRS to demonstrate integration with Semantic Web knowledge sources for enriching clinical data with linked biomedical knowledge, focusing on privacy-preserving approaches and reproducible patterns for decision support.",
+        "tags": ["OpenMRS", "EHR", "FHIR", "semantic-web", "clinical"]
+      },
+      {
+        "id": "bh3",
+        "title": "Bring Your Concepts",
+        "short": "Concept Mapping Clinic",
+        "format": "Short Spark",
+        "leads": "Pedro Paulo F. Barcelos et al. (Health-RI)",
+        "description": "Hands-on mapping clinic aligning concepts from ontologies and vocabularies to a shared semantic hub, operationalising the Health-RI Semantic Interoperability Initiative framework.",
+        "tags": ["ontology", "concept-mapping", "Health-RI", "interoperability"]
+      },
+      {
+        "id": "bh4",
+        "title": "Microscopy Metadata Meets Semantic Web",
+        "short": "Bioimaging & Linked Data",
+        "format": "Long-Term Project",
+        "leads": "Tiago Lubiana (German BioImaging)",
+        "description": "Focuses on the intersection of Semantic Web technologies and the microscopy ecosystem, including OMERO platform, OME-NGFF standard, and bioimaging repositories for strengthened interoperability.",
+        "tags": ["bioimaging", "OMERO", "microscopy", "linked-data", "OME-NGFF"]
+      }
+    ]
+  },
+
+  "venue": {
+    "name": "Amsterdam UMC \u2014 AMC location",
+    "address": "Meibergdreef 9, 1105 AZ Amsterdam",
+    "maps_url": "https://maps.google.com/?q=Amsterdam+UMC+AMC+Meibergdreef+9+Amsterdam",
+    "osm_url": "https://www.openstreetmap.org/?mlat=52.2996&mlon=4.9583#map=16/52.2996/4.9583",
+    "embed_url": "https://www.openstreetmap.org/export/embed.html?bbox=4.948%2C52.295%2C4.968%2C52.305&layer=mapnik&marker=52.2996%2C4.9583"
+  },
+
+  "transport": [
+    {
+      "icon": "🚇",
+      "label": "Nearest stop",
+      "detail": "Amsterdam Holendrecht (Metro 50 / NS train). Exit station, cross the square and walk over the bridge \u2014 the AMC main entrance is visible from the platform."
+    },
+    {
+      "icon": "🏙️",
+      "label": "From Amsterdam Centraal",
+      "detail": "Metro 50 direction Gein/Gaasperplas \u2192 exit Holendrecht (~35 min). Or NS Sprinter to Amsterdam Holendrecht (~28 min). Then 5-min walk."
+    },
+    {
+      "icon": "✈️",
+      "label": "From Schiphol Airport",
+      "detail": "NS Sprinter direct to Amsterdam Holendrecht (~25 min, \u20ac5.50 one-way). Or Metro 50 via Centraal. Walk 5 min to AMC entrance."
+    },
+    {
+      "icon": "🚲",
+      "label": "By bicycle",
+      "detail": "Cycle via the new park along Meibergdreef. Covered bike parking available beneath the stairs opposite the main entrance."
+    },
+    {
+      "icon": "🚗",
+      "label": "By car",
+      "detail": "Signposted from Amsterdam ring road A10, as well as A2 and A9. Paid parking on site. Allow extra time \u2014 construction works in the area."
+    }
+  ],
+
+  "tickets": [
+    { "name": "OVpay (contactless card/phone)", "network": "GVB + NS", "price": "Pay-as-you-go", "note": "Tap in/out with bank card. Daily GVB cap \u20ac10.50." },
+    { "name": "GVB 24 hrs", "network": "Metro / Tram / Bus", "price": "\u20ac10.00" },
+    { "name": "GVB 48 hrs", "network": "Metro / Tram / Bus", "price": "\u20ac16.00" },
+    { "name": "GVB 72 hrs", "network": "Metro / Tram / Bus", "price": "\u20ac21.50" },
+    { "name": "GVB 96 hrs (4 days)", "network": "Metro / Tram / Bus", "price": "\u20ac27.50" },
+    { "name": "Amsterdam Travel Ticket 1 day", "network": "GVB + NS trains", "price": "\u20ac20.00", "note": "Includes Schiphol \u2194 city trains." },
+    { "name": "Amsterdam Travel Ticket 2 days", "network": "GVB + NS trains", "price": "\u20ac27.00" },
+    { "name": "Amsterdam Travel Ticket 3 days", "network": "GVB + NS trains", "price": "\u20ac34.00" },
+    { "name": "NS single: Schiphol \u2194 Holendrecht", "network": "NS train only", "price": "from \u20ac5.50" }
+  ],
+
+  "hotels": [
+    { "name": "Hotel Levell", "address": "Hullenbergweg 353, Amsterdam", "distance": "5 min walk", "url": "https://www.hotellevel.nl" },
+    { "name": "Joy Hotel", "address": "Hullenbergweg 385, Amsterdam", "distance": "5 min walk", "url": "https://www.joyhotel.nl" },
+    { "name": "Fletcher Hotel Amsterdam", "address": "Schepenbergweg 50, Amsterdam", "distance": "1 metro stop / 12 min walk", "url": "https://www.fletcherhotels.nl" }
+  ],
+
+  "sponsors": [
+    { "name": "metaphacts", "tier": "Platinum", "url": "https://metaphacts.com" },
+    { "name": "Triply", "tier": "Gold", "url": "https://triply.cc" }
+  ]
+}

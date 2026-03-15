@@ -1,0 +1,21 @@
+{
+  "name": "SWAT4HCLS 2026 Amsterdam",
+  "short_name": "SWAT4HCLS",
+  "description": "Conference companion app — programme, venue, talks & networking",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0d47a1",
+  "theme_color": "#1565c0",
+  "lang": "en",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Programme", "url": "./#prog", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Venue & Travel", "url": "./#venue", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] }
+  ],
+  "categories": ["education", "productivity"]
+}
