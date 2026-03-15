@@ -13,6 +13,9 @@
   "youtube": "https://www.youtube.com/@swat4hcls",
   "website": "https://www.swat4ls.org/workshops/amsterdam2026/",
   "programme_url": "https://virtual.oxfordabstracts.com/event/76267/program",
+  "tutorials_url": "https://www.swat4ls.org/workshops/amsterdam2026/programme/tutorials/",
+  "keynotes_url": "https://www.swat4ls.org/workshops/amsterdam2026/programme/keynotes/",
+  "submissions_url": "https://www.swat4ls.org/workshops/amsterdam2026/programme/accepted-submissions/",
   "github_discussions": "https://github.com/SWAT4HCLS/SWAT4HCLS26_app/discussions",
   "email": "swat4hcls@gmail.com",
   "dates": "March 23\u201326, 2026",
@@ -56,7 +59,11 @@
           "room": "Room A",
           "slack": "#swat4hcls2026_t1",
           "abstract": "Hands-on introduction to clinical data modeling using the Semantic Unified Language for Ontologies (SULO). Participants will learn to represent clinical knowledge using formal ontological patterns.",
-          "tags": ["clinical-data", "modeling", "ontology"]
+          "tags": ["clinical-data", "modeling", "ontology"],
+          "links": [
+            { "label": "📄 Tutorial description (PDF)", "url": "https://www.swat4ls.org/wp-content/uploads/2026/01/SULO.pdf" },
+            { "label": "💬 Join Slack channel", "url": "https://swat4hcls.slack.com" }
+          ]
         },
         {
           "id": "t_am_b",
@@ -67,7 +74,11 @@
           "room": "Room B",
           "slack": "#swat4hcls2026_t2",
           "abstract": "Practical workshop on Retrieval-Augmented Generation (RAG) using knowledge graphs in healthcare and life sciences. Focus on knowledge graph quality criteria that ensure reliable LLM grounding.",
-          "tags": ["LLM", "GraphRAG", "knowledge-graph", "AI"]
+          "tags": ["LLM", "GraphRAG", "knowledge-graph", "AI"],
+          "links": [
+            { "label": "📄 Tutorial description (PDF)", "url": "https://www.swat4ls.org/wp-content/uploads/2026/01/GraphRAG.pdf" },
+            { "label": "💬 Join Slack channel", "url": "https://swat4hcls.slack.com" }
+          ]
         },
         {
           "id": "t_am_c",
@@ -78,7 +89,11 @@
           "room": "Room C",
           "slack": "#swat4hcls2026_t3",
           "abstract": "Learn to construct and query virtual knowledge graphs over relational and other data sources in life sciences using Ontop, without physically transforming the data.",
-          "tags": ["Ontop", "VKG", "SPARQL", "life-sciences"]
+          "tags": ["Ontop", "VKG", "SPARQL", "life-sciences"],
+          "links": [
+            { "label": "📄 Tutorial description (PDF)", "url": "https://www.swat4ls.org/wp-content/uploads/2026/01/Ontop-VKG.pdf" },
+            { "label": "💬 Join Slack channel", "url": "https://swat4hcls.slack.com" }
+          ]
         },
         {
           "id": "d1_coffee1",
@@ -103,7 +118,11 @@
           "room": "Room A",
           "slack": "#swat4hcls2026_t4",
           "abstract": "Practical session on provenance harmonization for biomedical datasets using the MIRAPIE framework, applied to the European Health Data Space (EHDS) context.",
-          "tags": ["provenance", "EHDS", "FAIR", "MIRAPIE"]
+          "tags": ["provenance", "EHDS", "FAIR", "MIRAPIE"],
+          "links": [
+            { "label": "📄 Tutorial description (PDF)", "url": "https://www.swat4ls.org/wp-content/uploads/2026/01/MIRAPIE.pdf" },
+            { "label": "💬 Join Slack channel", "url": "https://swat4hcls.slack.com" }
+          ]
         },
         {
           "id": "t_pm_b",
@@ -114,7 +133,11 @@
           "room": "Room B",
           "slack": "#swat4hcls2026_t5",
           "abstract": "Learn to map heterogeneous health datasets to the OMOP Common Data Model using declarative LinkML schemas, reducing manual transformation effort.",
-          "tags": ["OMOP", "LinkML", "CDM", "standardization"]
+          "tags": ["OMOP", "LinkML", "CDM", "standardization"],
+          "links": [
+            { "label": "📄 Tutorial description (PDF)", "url": "https://www.swat4ls.org/wp-content/uploads/2026/01/OMOP-and-LinkMl.pdf" },
+            { "label": "💬 Join Slack channel", "url": "https://swat4hcls.slack.com" }
+          ]
         },
         {
           "id": "t_pm_c",
@@ -125,7 +148,11 @@
           "room": "Room C",
           "slack": "#swat4hcls2026_t6",
           "abstract": "Beginner-friendly introduction to SPARQL for querying RDF knowledge graphs in the life sciences and healthcare, with hands-on examples on real biomedical datasets.",
-          "tags": ["SPARQL", "RDF", "beginner", "linked-data"]
+          "tags": ["SPARQL", "RDF", "beginner", "linked-data"],
+          "links": [
+            { "label": "📄 Tutorial description (PDF)", "url": "https://www.swat4ls.org/wp-content/uploads/2026/02/Learn_SPARQL_By_example.pdf" },
+            { "label": "💬 Join Slack channel", "url": "https://swat4hcls.slack.com" }
+          ]
         },
         {
           "id": "d1_coffee2",
@@ -159,8 +186,12 @@
           "speaker": "Prof. Ronald Cornet",
           "affil": "Amsterdam UMC & University of Amsterdam",
           "room": "Auditorium",
-          "abstract": "Reflecting on 25 years of researching semantics and ontologies in healthcare data, this talk addresses technical, social, and governance aspects while examining progress, challenges, and future directions in semantic interoperability for reusable health data.",
-          "tags": ["semantics", "ontology", "healthcare", "retrospective"]
+          "abstract": "Reflects on 25 years researching semantics and ontologies for healthcare data representation, addressing technical, social, and governance aspects while examining progress, pitfalls, and future directions in semantic interoperability for reusable health data.",
+          "bio": "Full Professor of Medical Informatics at Amsterdam UMC. His work focuses on semantic interoperability and information modeling, with consistent emphasis on making clinical and biomedical data more FAIR.",
+          "tags": ["semantics", "ontology", "healthcare", "retrospective"],
+          "links": [
+            { "label": "🌐 Keynote details", "url": "https://www.swat4ls.org/workshops/amsterdam2026/programme/keynotes/" }
+          ]
         },
         {
           "id": "d2_coffee1",
@@ -189,12 +220,16 @@
           "id": "d2_k2",
           "time": "13:30", "end": "14:30",
           "type": "keynote",
-          "title": "Scaling up data driven research can leverage the EHDS but needs better quality",
+          "title": "Scaling up data driven research can leverage the EHDS but needs better quality and more semantically interoperable data",
           "speaker": "Prof. Dipak Kalra",
-          "affil": "European Institute for Innovation through Health Data (i\u223cHD)",
+          "affil": "European Institute for Innovation through Health Data (i~HD)",
           "room": "Auditorium",
-          "abstract": "Examines how the European Health Data Space accelerates real-world data availability while highlighting critical success factors including provenance, quality, and public trust.",
-          "tags": ["EHDS", "data-quality", "provenance", "RWD"]
+          "abstract": "Examines how the European Health Data Space accelerates real-world data availability while highlighting critical success factors including data provenance, quality, standards, and public trust.",
+          "bio": "President of i~HD. Champions approaches combining technical interoperability with ethical, legal, and organisational trust to support responsible data sharing across healthcare and research.",
+          "tags": ["EHDS", "data-quality", "provenance", "RWD"],
+          "links": [
+            { "label": "🌐 Keynote details", "url": "https://www.swat4ls.org/workshops/amsterdam2026/programme/keynotes/" }
+          ]
         },
         {
           "id": "d2_papers2",
@@ -241,7 +276,11 @@
           "affil": "Idiap Research Institute, Martigny, Switzerland",
           "room": "Auditorium",
           "abstract": "Discusses combining large language models with formal ontologies and logical constraints to improve reliability and ensure reproducibility, with examples from chemistry and behavioural science.",
-          "tags": ["LLM", "ontology", "reproducibility", "AI"]
+          "bio": "Previously at EBI and University of Cambridge. From January 2026, leads the Human-Centred Health AI group at Idiap, focusing on improving AI approaches for evidence and decision-making.",
+          "tags": ["LLM", "ontology", "reproducibility", "AI"],
+          "links": [
+            { "label": "🌐 Keynote details", "url": "https://www.swat4ls.org/workshops/amsterdam2026/programme/keynotes/" }
+          ]
         },
         {
           "id": "d3_coffee1",
@@ -254,12 +293,16 @@
           "id": "d3_k4",
           "time": "10:30", "end": "11:30",
           "type": "keynote",
-          "title": "Keynote \u2014 Prof. Hannah Bast",
+          "title": "Keynote — Prof. Hannah Bast",
           "speaker": "Prof. Hannah Bast",
           "affil": "University of Freiburg, Germany",
           "room": "Auditorium",
-          "abstract": "Title to be announced. Prof. Bast specialises in algorithms, information retrieval, and high-performance systems for knowledge graph search and querying.",
-          "tags": ["knowledge-graph", "information-retrieval", "algorithms"]
+          "abstract": "Talk title to be announced. Prof. Bast specialises in algorithms, information retrieval, and high-performance systems for knowledge graph search, bridging rigorous computer science with real-world applications.",
+          "bio": "Professor at University of Freiburg specialising in algorithms, information retrieval, and high-performance systems for RDF and SPARQL use cases.",
+          "tags": ["knowledge-graph", "information-retrieval", "algorithms"],
+          "links": [
+            { "label": "🌐 Keynote details", "url": "https://www.swat4ls.org/workshops/amsterdam2026/programme/keynotes/" }
+          ]
         },
         {
           "id": "d3_papers3",
