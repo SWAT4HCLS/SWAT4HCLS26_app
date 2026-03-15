@@ -21,7 +21,7 @@
   "dates": "March 23\u201326, 2026",
   "start_date": "2026-03-23",
   "end_date": "2026-03-26",
-  "location": "Amsterdam UMC \u2014 AMC location",
+  "location": "AmsterdamUMC, location AMC",
   "address": "Meibergdreef 9, 1105 AZ Amsterdam, Netherlands",
 
   "committee": [
@@ -573,7 +573,7 @@
   },
 
   "venue": {
-    "name": "Amsterdam UMC \u2014 AMC location",
+    "name": "AmsterdamUMC, location AMC",
     "address": "Meibergdreef 9, 1105 AZ Amsterdam",
     "maps_url": "https://maps.google.com/?q=Amsterdam+UMC+AMC+Meibergdreef+9+Amsterdam",
     "osm_url": "https://www.openstreetmap.org/?mlat=52.2996&mlon=4.9583#map=16/52.2996/4.9583",
@@ -616,7 +616,7 @@
       "icon": "🚌",
       "label": "By bus",
       "steps": [
-        "Bus lines 120, 276, 370, 41, 47 and night bus N85 all stop near Amsterdam UMC AMC.",
+        "Bus lines 120, 276, 370, 41, 47 and night bus N85 all stop near AmsterdamUMC, location AMC.",
         "Nearest stops: Holendrechtplein, Amsterdam Meibergdreef, Tafelbergweg.",
         "Use 9292.nl or Moovit to plan from your starting point."
       ],
@@ -655,8 +655,8 @@
   ],
 
   "indoor_nav": {
-    "title": "Inside Amsterdam UMC — AMC",
-    "address_full": "Amsterdam UMC — AMC location\nMeibergdreef 9\n1105 AZ Amsterdam-Zuidoost\nNetherlands",
+    "title": "Inside AmsterdamUMC, location AMC",
+    "address_full": "AmsterdamUMC, location AMC\nMeibergdreef 9\n1105 AZ Amsterdam-Zuidoost\nNetherlands",
     "phone": "+31 20 566 9111",
     "conference_rooms": "TBA — room assignments will be posted here and on the interactive programme",
     "steps_from_entrance": [
