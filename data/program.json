@@ -93,7 +93,7 @@
           "title": "Building Virtual Knowledge Graphs for Life Sciences with Ontop-VKG",
           "track": "Track C",
           "room": "Room C",
-          "speaker": "Carsten Fortmann-Grote, Damien Goutte-Gattat, Tiago Lubiana, Joshua Moore, Daniel Olvera Cabrera, Andra Waagmeester",
+          "speaker": "Carsten Fortmann-Grote, Damien Goutte-Gattat, Rowdy de Groot, Tiago Lubiana, Joshua Moore, Daniel Olvera Cabrera, Andra Waagmeester",
           "affil": "Max Planck Institute for Evolutionary Biology; German BioImaging / Konstanz University; Micelio / AmsterdamUMC",
           "slack": "#swat4hcls2026_t3",
           "abstract": "Learn to construct and query virtual knowledge graphs over relational and other data sources in life sciences using Ontop, without physically transforming the data.",
