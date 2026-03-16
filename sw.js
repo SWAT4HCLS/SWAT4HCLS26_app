@@ -1,9 +1,10 @@
 /* SWAT4HCLS 2026 — Service Worker
    Network-first for JSON (always fresh data when online).
    Cache-first for HTML/CSS/JS/icons (fast offline load). */
-const V = 'swat4hcls26-v1';
+const V = 'swat4hcls26-v6';
 const PRECACHE = ['./', './index.html', './manifest.json',
-  './data/program.json', './icons/icon-192.png', './icons/icon-512.png'];
+  './data/program.json', './assets/amc_map.jpg',
+  './icons/icon-192.png', './icons/icon-512.png'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(V).then(c => c.addAll(PRECACHE).catch(()=>{})));
