@@ -1129,11 +1129,18 @@ ${navSections || `
   </ul>
 </div>
 <div class="card" style="margin-top:10px">
-  <div class="lbl">Indoor maps</div>
-  <div class="link-row">
-    <a class="lnk" href="https://www.openstreetmap.org/?mlat=52.2996&mlon=4.9583#map=18/52.2996/4.9583" target="_blank" rel="noopener">🗺️ OSM indoor (zoom in)</a>
-    <a class="lnk" href="https://www.amsterdamumc.nl/nl/locatie-amc/in-het-ziekenhuis" target="_blank" rel="noopener">🏥 AMC wayfinding</a>
-    <a class="lnk" href="https://www.amsterdamumc.nl/en/address" target="_blank" rel="noopener">📍 AMC address &amp; map</a>
+  <div class="lbl">Floor plan — routes to Collegezaal 4</div>
+  <div style="margin:10px 0 6px;font-size:12px;color:var(--tx2);line-height:1.5">
+    <span style="display:inline-block;width:14px;height:4px;background:#d426d4;border-radius:2px;vertical-align:middle;margin-right:5px"></span>Pink: from <strong>Ingang Oost (P4)</strong> via building J<br>
+    <span style="display:inline-block;width:14px;height:4px;background:#dc2626;border-radius:2px;vertical-align:middle;margin-right:5px"></span>Red: from <strong>Hoofdingang (P1)</strong> via main corridor
+  </div>
+  <img src="assets/amc_map.jpg"
+       alt="AMC floor plan with routes to Collegezaal 4 highlighted"
+       style="width:100%;border-radius:8px;border:1px solid var(--brd);display:block"
+       loading="lazy">
+  <div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:6px">
+    <a class="lnk" href="https://www.amsterdamumc.nl/nl/locatie-amc/in-het-ziekenhuis" target="_blank" rel="noopener">AMC wayfinding</a>
+    <a class="lnk" href="https://www.openstreetmap.org/?mlat=52.2996&mlon=4.9583#map=18/52.2996/4.9583" target="_blank" rel="noopener">OSM indoor map</a>
   </div>
 </div>`;
 
